@@ -3,7 +3,7 @@
 
 body {
     color: pink;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Inter', sans-serif !important;
 }
 
 
@@ -11,7 +11,7 @@ body {
 
 #footer {
     background-color: #ffffff;
-    color: pink;
+    color: #000000;
     text-align: center;
     overflow: hidden;
     position: fixed;
