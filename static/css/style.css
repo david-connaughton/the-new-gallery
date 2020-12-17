@@ -1,0 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Work+Sans&display=swap');
+
+body {
+    color: pink;
+    font-family: 'Work Sans', sans-serif;
+}
+
+
+/*-----------------------Footer*/
+
+#footer {
+    background-color: #ffffff;
+    color: pink;
+    text-align: center;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+}
