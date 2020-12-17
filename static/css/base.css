@@ -6,13 +6,54 @@ body {
     font-family: 'Inter', sans-serif !important;
 }
 
+/*-----------------------Navbar*/
+
+.navbar {
+    background-color: #c70000;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0px;
+    padding: 20px 0px;
+    border-radius: 0px;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    padding-left: 30px;
+    color: #FBFFFC !important;
+}
+
+div.dropdown-menu.show {
+    background-color: #c70000 !important;
+    color: #FBFFFC !important;
+    padding: 0;
+    text-align: center;
+}
+
+.navbar-nav :link,
+.navbar-nav :visited {
+    color: #FBFFFC!important;
+    background-color: #c70000;
+    font-size: 12px;
+    justify-content: center;
+}
+
+.navbar-nav :hover,
+.navbar-nav :active {
+    color: #141411!important;
+}
 
 /*-----------------------Footer*/
 
 #footer {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #c70000;
+    color: #FBFFFC;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     text-align: center;
+    padding: 10px 0;
     overflow: hidden;
     position: fixed;
     bottom: 0;
