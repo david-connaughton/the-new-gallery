@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <h1 class="mt-5 pt-5">Test</h1>
+    <h1 class="text-center mt-5 pt-5">Welcome to The Gallery</h1>
+    {% for photo in photos %}
+        <p>
+            {{ photo.title }}
+        </p>
+        <p>
+            {{ photo.photographer }}
+        </p>
+        <p>
+            {{ photo.tag }}
+        </p>
+        <p>
+            {{ photo.price }}
+        </p>
+        <img src="{{ photo.image.url }}" alt="">
+        
+    {% endfor %}
 {% endblock %}

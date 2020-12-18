@@ -1,6 +1,12 @@
 from django.shortcuts import render
+from .models import Photo
 
 
 def photos(request):
-    """A view to render Home Page"""
-    return render(request, 'photos/photos.html')
+    """A custom view to render Photo Page"""
+    photos = Photo.objects.all()
+    context = {
+        'photos': photos,
+    }
+    return render(request, 'photos/photos.html', context)
+
