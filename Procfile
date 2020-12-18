@@ -1,0 +1,1 @@
+web: gunicorn the_new_gallery.wsgi:application

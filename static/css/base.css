@@ -6,8 +6,11 @@ html {
 }
 
 body {
-    color: pink;
     font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Work Sans', sans-serif !important;
 }
 
 /*-----------------------Navbar*/
@@ -26,6 +29,7 @@ body {
     font-size: 20px;
     padding-left: 30px;
     color: #FBFFFC !important;
+    font-family: 'Work Sans', sans-serif !important;
 }
 
 div.dropdown-menu.show {
