@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!--Photo Information & Quantity Selector-->
+
+<section>
+    <div class="container-fluid mx-auto m-5 p-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="header">{{ photo.title }}</h1>
+                <br>
+                <img src="{{ photo.image.url }}" class="img-fluid p-1" alt="Photo Image">
+                <br>
+                <p>
+                    <small class="small">Photographer</small>
+                </p>
+                <p>{{ photo.photographer }}</p>
+                <p>
+                    <small class="small">Description</small>
+                </p>
+                <p>{{ photo.description }}</p>
+                <p>
+                    <small class="small">Price</small>
+                </p>
+                <p>€{{ photo.price }}</p>
+                <form>
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-12">
+                            <p>
+                                <small class="small">Quantity</small>
+                            </p>
+                            <div class="form-group col-12 mx-auto">
+                                <input class="form-control quantity" type="number" name="quantity" list="quantity" data-item_id="{{ photo.id }}" id="id_qty_{{ photo.id }}" placeholder="Select">
+                                <span class="validity"></span>
+                                <datalist id="quantity">
+                                    <option value="1">
+                                    <option value="2">
+                                    <option value="3">
+                                    <option value="4">
+                                    <option value="5">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <a href="{% url 'photos' %}" class="btn btn-sm info-button mr-2">
+                                <span>View More</span>
+                            </a>
+                            <input type="submit" class="btn btn-sm info-button mr-2" value="Add to Cart">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--End of Photo Information & Quantity Selector Section-->
+
+{% endblock %}

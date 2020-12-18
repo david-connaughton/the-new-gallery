@@ -10,7 +10,8 @@ body {
     background-color: #FBFFFC;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5,
+.small {
     font-family: 'Work Sans', sans-serif !important;
 }
 
@@ -126,6 +127,10 @@ div.dropdown-menu.show {
     text-decoration: none;
 }
 
+.card {
+    width: 24rem;
+}
+
 .card-outline {
     border: solid #141411 2px;
 }
@@ -144,8 +149,12 @@ div.dropdown-menu.show {
     border-color: #BBE6CA;
 }
 
-.price {
+.small {
     text-decoration: underline;
+}
+
+.form-group {
+    width: 200px;
 }
 
 /*-----------------------Media Queries*/

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
 from .models import Photo
@@ -20,3 +20,10 @@ def photos(request):
     }
     return render(request, 'photos/photos.html', context)
 
+
+def photo_detail(request, photo_id):
+    photo = get_object_or_404(Photo, pk=photo_id)
+    context = {
+        'photo': photo,
+    }
+    return render(request, 'photos/photo_detail.html', context)
