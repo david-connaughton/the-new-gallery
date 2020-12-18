@@ -1,21 +1,51 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <h1 class="text-center mt-5 pt-5">Welcome to The Gallery</h1>
-    {% for photo in photos %}
-        <p>
-            {{ photo.title }}
-        </p>
-        <p>
-            {{ photo.photographer }}
-        </p>
-        <p>
-            {{ photo.tag }}
-        </p>
-        <p>
-            {{ photo.price }}
-        </p>
-        <img src="{{ photo.image.url }}" alt="">
-        
-    {% endfor %}
+    <div class="container-fluid row justify-content-center">
+        <h1 class="mt-5 pt-5">Welcome to The Gallery</h1>
+    </div>
+
+    <section>
+        <div class="container-fluid row justify-content-center">
+            <div class="row">
+                <div class="col-12">
+                    <form>
+                        <div class="input-group">
+                            <a href="{% url 'photos' %}" class="btn btn-sm info-button mr-2">View All</a>
+                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Forest">
+                            <br>
+                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Sea">
+                            <br>
+                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Nature">
+                            <br>
+                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Street">
+                            <br>
+                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="People">
+                            <br>
+                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Stills">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            {% for photo in photos %}
+                <div class="col-12 col-md-4">
+                    <div class="card m-5 text-center card-outline" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ photo.image.url }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ photo.title }}</h5>
+                            <p>
+                                <small class="text-muted">{{ photo.tag }}</small>
+                            </p>
+                            <p class="card-text">€{{ photo.price }}</p>
+                            <a href="" class="btn btn-sm info-button">Further Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

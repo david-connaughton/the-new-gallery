@@ -103,11 +103,32 @@ div.dropdown-menu.show {
 }
 
 .home-button:hover,
-.home-button:active {
+.home-button:active,
+.info-button:hover,
+.info-button:active {
     color: #FBFFFC;
     background-color: #141411;
     border-color: #BBE6CA;
     text-decoration: none;
+}
+
+/*-----------------------Photo App*/
+
+.info-button {
+    color:  #FBFFFC;
+    background-color: #c70000;
+    border-color: #141411;
+    font-size: 15px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.card-outline {
+    border: solid #141411 2px;
+}
+
+.card-title {
+    text-transform: capitalize;
 }
 
 /*-----------------------Media Queries*/
