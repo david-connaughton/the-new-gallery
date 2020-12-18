@@ -11,9 +11,11 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-family: 'Work Sans', sans-serif !important;
-    color: #141411;
 }
 
+.header {
+    color: #141411;
+}
 
 /*-----------------------Navbar*/
 
@@ -131,6 +133,16 @@ div.dropdown-menu.show {
     text-transform: capitalize;
 }
 
+.page-button {
+    color:  #c70000;
+    border-color: #141411;
+}
+
+.page-button:hover,
+.page-button:active {
+    border-color: #BBE6CA;
+}
+
 /*-----------------------Media Queries*/
 
 @media screen and (max-width: 767px) {
@@ -138,6 +150,14 @@ div.dropdown-menu.show {
     .cover-image {
         background-image: url('/media/home-small.jpg');
         height: 600px;
+    }
+
+    .info-button {
+        font-size: 8px;
+    }
+
+    .card {
+        width: 18rem;
     }
 
 }

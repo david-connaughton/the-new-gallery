@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <div class="container-fluid row justify-content-center">
-        <h1 class="mt-5 pt-5">Welcome to The Gallery</h1>
+        <h1 class="mt-5 pt-5 header">Welcome to The Gallery</h1>
     </div>
 
     <section>
@@ -12,6 +12,7 @@
                     <form>
                         <div class="input-group">
                             <a href="{% url 'photos' %}" class="btn btn-sm info-button mr-2">View All</a>
+                           
                             <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Forest">
                             <br>
                             <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Sea">
@@ -33,7 +34,7 @@
         <div class="row">
             {% for photo in photos %}
                 <div class="col-12 col-md-4">
-                    <div class="card m-5 text-center card-outline" style="width: 18rem;">
+                    <div class="card m-5 text-center card-outline">
                         <img class="card-img-top" src="{{ photo.image.url }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ photo.title }}</h5>
@@ -48,4 +49,26 @@
             {% endfor %}
         </div>
     </section>
+
+    <section>
+        <div class="m-5 text-center">
+            <div class="row">
+                <div class="col-12">
+                    {% if photos.has_previous %}
+                        <a href="?page=1" class="btn btn-outline page-button"><i class="fas fa-angle-double-left"></i> First</a>
+                        <a href="?page={{ photos.previous_page_number }}" class="btn btn-outline page-button">
+                            <i class="fas fa-angle-left"></i> Previous</a>
+                    {% endif %}
+
+                    {% if photos.has_next %}
+                        <a href="?page={{ photos.next_page_number }}" class="btn btn-outline page-button">
+                            Next <i class="fas fa-chevron-right"></i></a>
+                        <a href="?page={{ photos.paginator.num_pages }}" class="btn btn-outline page-button">
+                            Last <i class="fas fa-angle-double-right"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
 {% endblock %}
