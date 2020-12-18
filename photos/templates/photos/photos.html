@@ -1,14 +1,31 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
+<!--Header-->
+
     <div class="container-fluid row justify-content-center">
-        <h1 class="mt-5 pt-5 header">Welcome to The Gallery</h1>
+        <h1 class="mt-5 pt-5 header">Welcome to The New Gallery</h1>
+        <br>
     </div>
+
+<!--End of Header Section-->
+
+<!--Article-->
+
+    <article>
+        <p class="text-center mb-5">Please peruse our selection of bespoke Photographs.</p>
+    </article>
+
+<!--End of Article Section-->
+
+<!--Filter-->
 
     <section>
         <div class="container-fluid row justify-content-center">
             <div class="row">
                 <div class="col-12">
+                    <h2 class="text-center header">Filter</h2>
                     <form>
                         <div class="input-group">
                             <a href="{% url 'photos' %}" class="btn btn-sm info-button mr-2">View All</a>
@@ -30,6 +47,11 @@
             </div>
         </div>
     </section>
+
+<!--End of Filter Section-->
+
+<!--Photos-->
+
     <section>
         <div class="row">
             {% for photo in photos %}
@@ -39,7 +61,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ photo.title }}</h5>
                             <p>
-                                <small class="text-muted">{{ photo.tag }}</small>
+                                <small class="price">Price</small>
                             </p>
                             <p class="card-text">€{{ photo.price }}</p>
                             <a href="" class="btn btn-sm info-button">Further Details</a>
@@ -49,6 +71,10 @@
             {% endfor %}
         </div>
     </section>
+
+<!--End of Photo Section-->
+
+<!--Pagination-->
 
     <section>
         <div class="m-5 text-center">
@@ -71,4 +97,7 @@
         </div>
     </section>
     <br>
+
+<!--End of Pagination Section-->
+
 {% endblock %}

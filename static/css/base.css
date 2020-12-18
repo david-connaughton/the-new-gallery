@@ -7,6 +7,7 @@ html {
 
 body {
     font-family: 'Inter', sans-serif !important;
+    background-color: #FBFFFC;
 }
 
 h1, h2, h3, h4, h5 {
@@ -141,6 +142,10 @@ div.dropdown-menu.show {
 .page-button:hover,
 .page-button:active {
     border-color: #BBE6CA;
+}
+
+.price {
+    text-decoration: underline;
 }
 
 /*-----------------------Media Queries*/
