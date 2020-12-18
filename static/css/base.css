@@ -1,6 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Work+Sans&display=swap');
 
+html {
+    height: 100%;
+}
+
 body {
     color: pink;
     font-family: 'Inter', sans-serif !important;
@@ -57,4 +61,45 @@ div.dropdown-menu.show {
     overflow: hidden;
     position: fixed;
     bottom: 0;
+}
+
+/*-----------------------Home Page*/
+
+.cover-image {
+    background-image: url('/media/home.jpg');
+    height: 1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    position: relative;
+}
+
+.cover-text {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FBFFFC;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.home-button {
+    color:  #FBFFFC;
+    background-color: #c70000;
+    border-color: #141411;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.home-button:hover,
+.home-button:active {
+    color: #FBFFFC;
+    background-color: #141411;
+    border-color: #BBE6CA;
+    text-decoration: none;
 }
