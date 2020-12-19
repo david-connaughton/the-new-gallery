@@ -1,3 +1,4 @@
+/*-----------------------Font*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Work+Sans&display=swap');
 
@@ -171,21 +172,54 @@ select {
 }
 
 select {
-    width: 95px;
+    width: 110px;
     margin-bottom: 5px;
+}
+
+.modal-dialog {
+    width: 600px;
 }
 
 /*-----------------------Media Queries*/
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 500px) {
 
     .cover-image {
         background-image: url('/media/home-small.jpg');
-        height: 600px;
+        max-height: 750px;
     }
 
     .info-button {
-        font-size: 8px;
+        font-size: 10px;
+    }
+
+    .card {
+        width: 18rem;
+    }
+
+    .small-filter {
+        display: block;
+    }
+
+    .medium-filter {
+        display: none;
+    }
+
+    .modal-dialog {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 501px) and (max-width: 767px) {
+
+    .cover-image {
+        background-image: url('/media/home-small.jpg');
+        height: 800px;
+    }
+
+    .info-button {
+        font-size: 10px;
     }
 
     .card {
@@ -200,6 +234,10 @@ select {
         display: block;
     }
 
+    .modal-dialog {
+        display: none;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -207,6 +245,10 @@ select {
     .cover-image {
         background-image: url('/media/home-medium.jpg');
         height: 1000px;
+    }
+
+    .modal-dialog {
+        display: none;
     }
 
 }
