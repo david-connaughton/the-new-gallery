@@ -38,11 +38,11 @@
                                 <input class="form-control quantity" type="number" name="quantity" list="quantity" data-item_id="{{ photo.id }}" id="id_qty_{{ photo.id }}" placeholder="Select">
                                 <span class="validity"></span>
                                 <datalist id="quantity">
-                                    <option value="1">
-                                    <option value="2">
-                                    <option value="3">
-                                    <option value="4">
-                                    <option value="5">
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                    <option value="3"></option>
+                                    <option value="4"></option>
+                                    <option value="5"></option>
                                 </datalist>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                 <img class="modal-main" id="modal-main-id">
             </div>
             <div class="modal-footer mx-auto">
-                <p>By Shane Connaughton 2020©</p>
+                <p>By {{ photo.photographer }} 2020©</p>
                 <div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"><button type="button" class="btn btn-sm info-button mr-2" data-dismiss="modal">Close</button></span>
