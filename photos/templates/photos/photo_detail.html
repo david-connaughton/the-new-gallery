@@ -6,7 +6,7 @@
 <!--Photo Information & Quantity Selector-->
 
 <section>
-    <div class="container-fluid mx-auto m-5 p-5">
+    <div class="container-fluid mx-auto m-5 p-5" id="photo-section">
         <div class="row">
             <div class="col-12 text-center">
                 <h1 class="header">{{ photo.title }}</h1>
@@ -20,7 +20,7 @@
                 <p>
                     <small class="small">Description</small>
                 </p>
-                <p>{{ photo.description }}</p>
+                <p class="description">{{ photo.description }}</p>
                 <p>
                     <small class="small">Price</small>
                 </p>
@@ -60,4 +60,14 @@
 
 <!--End of Photo Information & Quantity Selector Section-->
 
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super}}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#photo-section').css('display', 'none');
+        $('#photo-section').fadeIn(1500);
+    });
+</script>
 {% endblock %}

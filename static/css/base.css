@@ -102,7 +102,6 @@ div.dropdown-menu.show {
     background-color: #c70000;
     border-color: #141411;
     font-size: 20px;
-    text-transform: uppercase;
     text-decoration: none;
 }
 
@@ -153,8 +152,27 @@ div.dropdown-menu.show {
     text-decoration: underline;
 }
 
+.small-filter {
+    display: none;
+}
+
+.description {
+    text-transform: capitalize;
+}
+
 .form-group {
     width: 200px;
+}
+
+.form-control,
+select {
+    background-color: #FBFFFC;
+    font-family: 'Work Sans', sans-serif !important;
+}
+
+select {
+    width: 95px;
+    margin-bottom: 5px;
 }
 
 /*-----------------------Media Queries*/
@@ -172,6 +190,14 @@ div.dropdown-menu.show {
 
     .card {
         width: 18rem;
+    }
+
+    .medium-filter {
+        display: none;
+    }
+
+    .small-filter {
+        display: block;
     }
 
 }

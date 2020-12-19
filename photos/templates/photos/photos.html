@@ -26,22 +26,37 @@
             <div class="row">
                 <div class="col-12 mx-auto">
                     <h2 class="text-center header">Filter</h2>
-                    <form>
+                    <form class="medium-filter">
                         <div class="input-group">
-                            <a href="{% url 'photos' %}" class="btn btn-sm info-button mr-2">View All</a>
-                           
-                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Forest">
+                            <a href="{% url 'photos' %}" class="btn btn-outline page-button mr-1">All</a>
+                            <input class="btn btn-outline page-button mr-1" type="submit" name="q" value="Forest">
                             <br>
-                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Sea">
+                            <input class="btn btn-outline page-button mr-1" type="submit" name="q" value="Nature">
                             <br>
-                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Nature">
+                            <input class="btn btn-outline page-button mr-1" type="submit" name="q" value="People">
                             <br>
-                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Street">
+                            <input class="btn btn-outline page-button mr-1" type="submit" name="q" value="Sea">
                             <br>
-                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="People">
+                            <input class="btn btn-outline page-button mr-1" type="submit" name="q" value="Stills">
                             <br>
-                            <input class="btn btn-sm info-button mr-2" type="submit" name="q" value="Stills">
+                            <input class="btn btn-outline page-button mr-1" type="submit" name="q" value="Street">
                         </div>
+                    </form>
+
+                    <!--Filter For Mobile-->
+                    <form class="small-filter">
+                        <select name="q" id="q">
+                            <option value="" disbaled selected>Select</option>
+                            <option value="Forest" name="q" >Forest</option>
+                            <option value="Nature" name="q" >Nature</option>
+                            <option value="People" name="q" >People</option>
+                            <option value="Sea" name="q" >Sea</option>
+                            <option value="Stills" name="q" >Stills</option>
+                            <option value="Street" name="q" >Street</option>
+                        </select>
+                        <br>
+                        <input type="submit" class="btn btn-sm info-button">
+                        <a href="{% url 'photos' %}" class="btn btn-sm info-button">View All</a>
                     </form>
                 </div>
             </div>
