@@ -27,7 +27,7 @@
                     <small class="small">Price</small>
                 </p>
                 <p>€{{ photo.price }}</p>
-                <form>
+                <form class="form" action="{% url 'add_to_cart' photo.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
                         <div class="col-12">

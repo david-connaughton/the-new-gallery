@@ -52,7 +52,20 @@
                                 <a class="nav-link" href="{% url 'photos' %}">Gallery</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'view_cart' %}">Cart</a>
+                                <li class="list-inline-item">
+                                    <a class="nav-link" href="{% url 'view_cart' %}">
+                                        <div class="text-center">
+                                            <div>
+                                                Cart
+                                                {% if total %}
+                                                    €{{ total|floatformat:2 }}
+                                                {% else %}
+                                                    €0.00
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
