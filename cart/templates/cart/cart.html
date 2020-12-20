@@ -11,5 +11,44 @@
     </div>
 
 <!--End of Header Section-->
+    {% if cart_items %}
+    <div class="container-fluid mx-auto m-5 p-5">
+        <div class="row">
+            {% for item in cart_items %}
+                <div class="card m-5 mx-auto text-center card-outline">
+                    <img class="card-img-top" src="{{ item.photo.image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.photo.title }}</h5>
+                        <p>
+                            <small class="small">Quantity</small>
+                        </p>
+                        <p class="card-text">{{ item.quantity }} @ €{{ item.photo.price }} per item</p>
+                        <form class="form update-form" action="" method="POST">
+                            {% csrf_token %}
+                                <p>
+                                <small class="small">Edit Quantity</small>
+                                </p>
+                                <input type="number" name="quantity" list="quantity" data-item_id="{{ item.item_id}}
+                                " id="id_qty_{{ item.item_id }}">
+                                <span class="validity"></span>
+                                <datalist id="quantity">
+                                    <option value="0"></option>
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                    <option value="3"></option>
+                                    <option value="4"></option>
+                                    <option value="5"></option>
+                                </datalist>
+                        </form>
+                        <p>
+                            <small class="small">Total</small>
+                        </p>
+                        <p class="card-text">€{{ item.photo.price }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
 
 {% endblock %}
