@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+{% endblock %}
+
 {% block content %}
 
 <!--Header-->
-
+    {% if cart_items %}
     <div class="container-fluid mx-auto row justify-content-center">
         <h1 class="mt-5 pt-5 header">Welcome to your Cart!</h1>
         <br>
     </div>
 
 <!--End of Header Section-->
-    {% if cart_items %}
+    
     <div class="container-fluid mx-auto m-5 p-5">
         <div class="row">
             {% for item in cart_items %}
@@ -23,13 +27,12 @@
                             <small class="small">Quantity</small>
                         </p>
                         <p class="card-text">{{ item.quantity }} @ €{{ item.photo.price }} per item</p>
-                        <form class="form update-form" action="" method="POST">
+                        <p>
+                            <small class="small">Edit Quantity</small>
+                        </p>
+                        <form class="form update-form" action="{% url 'edit_cart' item.item_id %}" method="POST">
                             {% csrf_token %}
-                                <p>
-                                <small class="small">Edit Quantity</small>
-                                </p>
-                                <input type="number" name="quantity" list="quantity" data-item_id="{{ item.item_id}}
-                                " id="id_qty_{{ item.item_id }}">
+                                <input class="form-control qty_input" type="number" name="quantity" list="quantity" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" placeholder="Select">
                                 <span class="validity"></span>
                                 <datalist id="quantity">
                                     <option value="0"></option>
@@ -39,7 +42,14 @@
                                     <option value="4"></option>
                                     <option value="5"></option>
                                 </datalist>
+                                <br>
+                                <div class="mx-auto text-center"><button type="submit" class="btn btn-sm info-button mr-2">Edit</button>
+                                <a href="{% url 'remove_from_cart' item.item_id %}" class="btn btn-sm info-button mr-2">Delete</a></div>
                         </form>
+                            
+                            
+                            <!-- <input type="hidden" name="redirect_url" value="{{ request.path }}"> -->
+                        <br>
                         <p>
                             <small class="small">Total</small>
                         </p>
@@ -47,6 +57,34 @@
                     </div>
                 </div>
             {% endfor %}
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="mx-auto text-center">
+                <a href="{% url 'photos' %}" class="btn btn-outline page-button">
+                    <i class="fas fa-shopping-cart"></i>
+                        Visit Gallery
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    {% else %}
+    <div class="container-fluid mx-auto nothing-in-cart">
+        <div class="row">
+            <div class="m5 mx-auto text-center">
+                <h2 class="mt-3 pt-3 header">There's nothing in your Cart.</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto text-center">
+                <a href="{% url 'photos' %}" class="btn btn-outline page-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    Visit Gallery
+                </a>
+            </div>
         </div>
     </div>
     {% endif %}

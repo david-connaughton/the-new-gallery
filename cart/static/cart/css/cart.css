@@ -1,0 +1,8 @@
+.nothing-in-cart {
+    padding: 350px 0;
+}
+
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
