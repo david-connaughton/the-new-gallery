@@ -20,7 +20,19 @@
     </div>
     <div class="container-fluid mx-auto row justify-content-center">
         <h5 class="header">Your present cart total is: €{{ total|floatformat:2 }}</h5>
-    </div>    
+    </div>
+    <div class="row">
+        <div class="mx-auto text-center">
+            <a href="{% url 'photos' %}" class="btn btn-outline page-button">
+                <i class="far fa-image"></i>
+                Visit Gallery
+            </a>
+            <a href="{% url 'checkout' %}" class="btn btn-outline page-button">
+                <i class="fas fa-shopping-cart"></i>
+                Checkout
+            </a>
+        </div>
+    </div> 
 
 <!--End of Header Section-->
 
@@ -66,16 +78,6 @@
             {% endfor %}
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="mx-auto text-center">
-                <a href="{% url 'photos' %}" class="btn btn-outline page-button">
-                    <i class="fas fa-shopping-cart"></i>
-                        View Gallery
-                </a>
-            </div>
-        </div>
-    </div>
     <br>
     <br>
     {% else %}
@@ -88,7 +90,7 @@
         <div class="row">
             <div class="mx-auto text-center">
                 <a href="{% url 'photos' %}" class="btn btn-outline page-button">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="far fa-image"></i>
                     Visit Gallery
                 </a>
             </div>
@@ -97,6 +99,6 @@
 
     {% endif %}
 
-<!--End ofItems in Cart Section-->
+<!--End of Items in Cart Section-->
 
 {% endblock %}
