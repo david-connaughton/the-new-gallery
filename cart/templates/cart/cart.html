@@ -1,22 +1,32 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 {% block extra_css %}
+
 <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+
 {% endblock %}
 
 {% block content %}
 
 <!--Header-->
+
     {% if cart_items %}
+
     <div class="container-fluid mx-auto row justify-content-center">
         <h1 class="mt-5 pt-5 header">Welcome to your Cart!</h1>
-        <br>
+        <!-- <br> -->
     </div>
+    <div class="container-fluid mx-auto row justify-content-center">
+        <h5 class="header">Your present cart total is: €{{ total|floatformat:2 }}</h5>
+    </div>    
 
 <!--End of Header Section-->
+
+<!--Items in Cart Section-->
     
-    <div class="container-fluid mx-auto m-5 p-5">
+    <div class="container-fluid mx-auto">
         <div class="row">
             {% for item in cart_items %}
                 <div class="card m-5 mx-auto text-center card-outline">
@@ -46,14 +56,11 @@
                                 <div class="mx-auto text-center"><button type="submit" class="btn btn-sm info-button mr-2">Edit</button>
                                 <a href="{% url 'remove_from_cart' item.item_id %}" class="btn btn-sm info-button mr-2">Delete</a></div>
                         </form>
-                            
-                            
-                            <!-- <input type="hidden" name="redirect_url" value="{{ request.path }}"> -->
                         <br>
                         <p>
                             <small class="small">Total</small>
                         </p>
-                        <p class="card-text">€{{ item.photo.price }}</p>
+                        <p class="card-text">€{{ item.photo.price | calc_subtotal:item.quantity }}</p>
                     </div>
                 </div>
             {% endfor %}
@@ -64,7 +71,7 @@
             <div class="mx-auto text-center">
                 <a href="{% url 'photos' %}" class="btn btn-outline page-button">
                     <i class="fas fa-shopping-cart"></i>
-                        Visit Gallery
+                        View Gallery
                 </a>
             </div>
         </div>
@@ -87,6 +94,9 @@
             </div>
         </div>
     </div>
+
     {% endif %}
+
+<!--End ofItems in Cart Section-->
 
 {% endblock %}
