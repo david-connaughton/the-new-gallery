@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+
+{% endblock %}
+
 {% block content %}
 
 <!--Header-->
@@ -8,7 +16,112 @@
         <h1 class="mt-5 pt-5 header">Checkout</h1>
         <br>
     </div>
+    <div class="container-fluid mx-auto row justify-content-center">
+        <h5 class="header">Order Total: €{{ total|floatformat:2 }}</h5>
+    </div>
+    <div class="row">
+        <div class="mx-auto text-center">
+            <h5 class="header">Proceed to </h5>
+            <a href="#payment-section" class="btn btn-outline page-button">
+                <i class="fas fa-credit-card"></i>
+                Payment
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid mx-auto row justify-content-center">
+        <h5 class="header">Order:</h5>
+    </div>
+    <div class="mx-auto text-center">
+        <button class="btn btn-outline page-button"  id="order-button">
+            <i class="fas fa-shopping-cart"></i>
+            Hide/Show Order Details
+        </button>
+    </div>
 
 <!--End of Header Section-->
 
+     <div class="container-fluid mx-auto hide">
+        <div class="row">
+            {% for item in cart_items %}
+                <div class="card m-5 mx-auto text-center card-outline">
+                    <img class="card-img-top" src="{{ item.photo.image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.photo.title }}</h5>
+                        <p>
+                            <small class="small">Quantity</small>
+                        </p>
+                        <p class="card-text">{{ item.quantity }} @ €{{ item.photo.price }} per item</p>
+                        <p>
+                            <small class="small">Total</small>
+                        </p>
+                        <p class="card-text">€{{ item.photo.price | calc_subtotal:item.quantity }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div> 
+
+<section>
+    <div class="container-fluid mx-auto m-5 p-5" id="payment-section">
+        <div class="row">
+            <div class="col-12 mx-auto text-center">
+                <h1 class="header">Delivery Details</h1>
+                <br>
+            </div>
+            <div class="col-12 mx-auto text-center">
+                <form class="form" action="" method="POST" id="payment">
+                    <div class="form-row">
+                        <div class="col-12 text-center">
+                        {% csrf_token %}
+                            <fieldset class="fields">
+                                {{ order_form.full_name | as_crispy_field }}
+                                {{ order_form.email | as_crispy_field }}
+                                {{ order_form.phone_number | as_crispy_field }}
+                                {{ order_form.street_address_1 | as_crispy_field }}
+                                {{ order_form.street_address_2 | as_crispy_field }}
+                                {{ order_form.county | as_crispy_field }}
+                                {{ order_form.postcode | as_crispy_field }}
+                                {{ order_form.city | as_crispy_field }}
+                                {{ order_form.country | as_crispy_field }}
+                                {{ order_form.email_print | as_crispy_field }}
+                                <div class="form-check">
+                                    {% if user.is_authenticated %}
+                                        <label for="">Save</label>
+                                        <input type="checkbox" name="" id="">
+                                    {% else %}
+                                        <label for="">Save Details</label>
+                                        <input type="checkbox" name="save-details" id="save-details">
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Card Details</legend>
+                                <div id="card-element"></div>
+                            </fieldset>
+                            <div class="col-12 mx-auto text-center">
+                                <button class="btn btn-outline page-button"  id="order-button">
+                                    <i class="fas fa-shopping-cart"></i>
+                                        Purchase
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+ 
 {% endblock %}
+
+<!--Additional Javascript-->
+
+{% block extra_js %}
+{{ block.super}}
+
+<script src="{% static 'checkout/js/checkout.js' %}"></script>
+
+{% endblock %}
+
+<!--End of Additional Javascript Section-->

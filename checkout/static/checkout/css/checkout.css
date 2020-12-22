@@ -1,0 +1,28 @@
+.form-control {
+    text-align: center;
+}
+
+.fields {
+    display: inline;
+    padding-left: 90px;
+    padding-right: 90px; 
+    padding-top: 10px; 
+    border: solid #212529 2px;
+}
+
+input,
+select {
+    border: solid #c70000 1px !important;
+}
+/*-----------------------Media Queries*/
+
+@media screen and (max-width: 767px) {
+
+    .fields {
+        padding-left: 45px;
+        padding-right: 45px;
+        padding-top: 10px; 
+    }
+
+}
+
