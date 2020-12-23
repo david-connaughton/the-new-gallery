@@ -30,16 +30,18 @@
     </div>
     <br>
     <div class="container-fluid mx-auto row justify-content-center">
-        <h5 class="header">Order:</h5>
+        <h2 class="header">Order</h2>
     </div>
     <div class="mx-auto text-center">
         <button class="btn btn-outline page-button"  id="order-button">
             <i class="fas fa-shopping-cart"></i>
-            Hide/Show Order Details
+                Show/Hide Order Details
         </button>
     </div>
 
 <!--End of Header Section-->
+
+<!--Order Details Section-->
 
      <div class="container-fluid mx-auto hide">
         <div class="row">
@@ -62,63 +64,85 @@
         </div>
     </div> 
 
+<!--End of Order Details Section-->
+
+<!--Delivery & Payment  Section-->
+
 <section>
     <div class="container-fluid mx-auto m-5 p-5" id="payment-section">
         <div class="row">
             <div class="col-12 mx-auto text-center">
-                <h1 class="header">Delivery Details</h1>
+                <h2 class="header">Delivery &amp; Payment</h2>
                 <br>
             </div>
             <div class="col-12 mx-auto text-center">
-                <form class="form" action="" method="POST" id="payment">
-                    <div class="form-row">
-                        <div class="col-12 text-center">
-                        {% csrf_token %}
-                            <fieldset class="fields">
-                                {{ order_form.full_name | as_crispy_field }}
-                                {{ order_form.email | as_crispy_field }}
-                                {{ order_form.phone_number | as_crispy_field }}
-                                {{ order_form.street_address_1 | as_crispy_field }}
-                                {{ order_form.street_address_2 | as_crispy_field }}
-                                {{ order_form.county | as_crispy_field }}
-                                {{ order_form.postcode | as_crispy_field }}
-                                {{ order_form.city | as_crispy_field }}
-                                {{ order_form.country | as_crispy_field }}
-                                {{ order_form.email_print | as_crispy_field }}
-                                <div class="form-check">
-                                    {% if user.is_authenticated %}
-                                        <label for="">Save</label>
-                                        <input type="checkbox" name="" id="">
-                                    {% else %}
-                                        <label for="">Save Details</label>
-                                        <input type="checkbox" name="save-details" id="save-details">
-                                    {% endif %}
+                <div class="row">
+                    <div class="card m-5 mx-auto text-center card-outline">
+                        <form class="form" action="{% url 'checkout' %}" method="POST" id="payment">
+                            <div class="form-row">
+                                <div class="col-12 text-center">
+                                {% csrf_token %}
+                                    <fieldset class="fields">
+                                        {{ order_form.full_name | as_crispy_field }}
+                                        {{ order_form.email | as_crispy_field }}
+                                        {{ order_form.phone_number | as_crispy_field }}
+                                        {{ order_form.street_address_1 | as_crispy_field }}
+                                        {{ order_form.street_address_2 | as_crispy_field }}
+                                        {{ order_form.county | as_crispy_field }}
+                                        {{ order_form.postcode | as_crispy_field }}
+                                        {{ order_form.city | as_crispy_field }}
+                                        {{ order_form.country | as_crispy_field }}
+                                        {{ order_form.email_print | as_crispy_field }}
+                                        <div class="form-check">
+                                            {% if user.is_authenticated %}
+                                                <label for="">Save</label>
+                                                <input type="checkbox" name="" id="">
+                                            {% else %}
+                                                <label for="">Save Details</label>
+                                                <input type="checkbox" name="save-details" id="save-details">
+                                            {% endif %}
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="col-12 mx-auto text-center">
+                                            <legend>Card Details</legend>
+                                            <div class="mx-auto text-center" id="card-element"></div>
+                                        </div>
+                                        <br>
+                                        <div class="col-12 mx-auto text-center">
+                                            <div class="mx-auto text-center" 
+                                            id="card-errors">
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </fieldset>
+                                    <div class="col-12 mb-2 mx-auto text-center">
+                                        <button class="btn btn-outline page-button submit" id="order-button-checkout">
+                                            <i class="fas fa-shopping-cart"></i>
+                                                Purchase
+                                        </button>
+                                    </div>
                                 </div>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Card Details</legend>
-                                <div id="card-element"></div>
-                            </fieldset>
-                            <div class="col-12 mx-auto text-center">
-                                <button class="btn btn-outline page-button"  id="order-button">
-                                    <i class="fas fa-shopping-cart"></i>
-                                        Purchase
-                                </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
  
+<!--End of Delivery & Payment Section-->
+
 {% endblock %}
 
 <!--Additional Javascript-->
 
-{% block extra_js %}
-{{ block.super}}
+{% block postload_js %}
+{{ block.super }}
+
+   {{ stripe_public_key|json_script:"id_stripe_public_key" }} 
+   {{ client_secret|json_script:"id_client_secret" }} 
 
 <script src="{% static 'checkout/js/checkout.js' %}"></script>
 

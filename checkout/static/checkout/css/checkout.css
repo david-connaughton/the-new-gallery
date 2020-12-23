@@ -4,16 +4,61 @@
 
 .fields {
     display: inline;
-    padding-left: 90px;
+    padding-top: 10px;
+    /* padding-left: 90px;
     padding-right: 90px; 
     padding-top: 10px; 
-    border: solid #212529 2px;
+    border: solid #212529 2px; */
 }
 
 input,
 select {
     border: solid #c70000 1px !important;
 }
+
+/* Stripe Styling from Stripe Documentation */
+
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: #000;
+    border:  solid #c70000 1px !important;
+    max-width: 450px;
+}
+
+
+
 /*-----------------------Media Queries*/
 
 @media screen and (max-width: 767px) {

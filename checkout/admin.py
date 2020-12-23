@@ -1,3 +1,5 @@
+"""Inspired by Code Institute Tutorial"""
+
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
