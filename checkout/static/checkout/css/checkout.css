@@ -6,15 +6,19 @@
 .input {
     display: inline;
     padding-top: 10px;
-    /* padding-left: 90px;
-    padding-right: 90px; 
-    padding-top: 10px; 
-    border: solid #212529 2px; */
+}
+
+.form-all {
+    background-color: #FBFFFC;
 }
 
 input,
 select {
     border: solid #c70000 1px !important;
+}
+
+.hide {
+    display: none;
 }
 
 /* Stripe Styling from Stripe Documentation */

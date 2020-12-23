@@ -43,95 +43,97 @@
 
 <!--Order Details Section-->
 
-     <div class="container-fluid mx-auto hide">
-        <div class="row">
-            {% for item in cart_items %}
-                <div class="card m-5 mx-auto text-center card-outline">
-                    <img class="card-img-top" src="{{ item.photo.image.url }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item.photo.title }}</h5>
-                        <p>
-                            <small class="small">Quantity</small>
-                        </p>
-                        <p class="card-text">{{ item.quantity }} @ €{{ item.photo.price }} per item</p>
-                        <p>
-                            <small class="small">Total</small>
-                        </p>
-                        <p class="card-text">€{{ item.photo.price | calc_subtotal:item.quantity }}</p>
+    <section>
+        <div class="container-fluid mx-auto hide">
+            <div class="row">
+                {% for item in cart_items %}
+                    <div class="card m-5 mx-auto text-center card-outline">
+                        <img class="card-img-top" src="{{ item.photo.image.url }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.photo.title }}</h5>
+                            <p>
+                                <small class="small">Quantity</small>
+                            </p>
+                            <p class="card-text">{{ item.quantity }} @ €{{ item.photo.price }} per item</p>
+                            <p>
+                                <small class="small">Total</small>
+                            </p>
+                            <p class="card-text">€{{ item.photo.price | calc_subtotal:item.quantity }}</p>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div> 
+                {% endfor %}
+            </div>
+        </div> 
+    </section>
 
 <!--End of Order Details Section-->
 
 <!--Delivery & Payment  Section-->
 
-<section>
-    <div class="container-fluid mx-auto m-5 p-5" id="payment-section">
-        <div class="row">
-            <div class="col-12 mx-auto text-center">
-                <h2 class="header">Delivery &amp; Payment</h2>
-                <br>
-            </div>
-            <div class="col-12 mx-auto text-center">
-                <div class="row">
-                    <div class="card m-5 mx-auto text-center card-outline">
-                        <form class="form" action="{% url 'checkout' %}" method="POST" id="payment">
-                            <div class="form-row">
-                                <div class="col-12 text-center">
-                                {% csrf_token %}
-                                    <fieldset class="fields">
-                                        {{ order_form.full_name | as_crispy_field }}
-                                        {{ order_form.email | as_crispy_field }}
-                                        {{ order_form.phone_number | as_crispy_field }}
-                                        {{ order_form.street_address_1 | as_crispy_field }}
-                                        {{ order_form.street_address_2 | as_crispy_field }}
-                                        {{ order_form.county | as_crispy_field }}
-                                        {{ order_form.postcode | as_crispy_field }}
-                                        {{ order_form.city | as_crispy_field }}
-                                        {{ order_form.country | as_crispy_field }}
-                                        {{ order_form.email_print | as_crispy_field }}
-                                        <div class="form-check col-12 text-center">
-                                            {% if user.is_authenticated %}
-                                                <label class="form-check-label " for="id-save-info">Save</label>
-                                                <input type="checkbox" name="save-info" id="id-save-info">
-                                            {% else %}
-                                                <label class="form-check-label " for="id-save-info"></label>
-                                                <a class="btn btn-sm info-button" href="{% url 'account_signup' %}">Register</a>
-                                                <a class="btn btn-sm info-button" href="{% url 'account_login' %}">Login</a>
-                                            {% endif %}
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="col-12 mx-auto text-center">
-                                            <legend>Card Details</legend>
-                                            <div class="mx-auto text-center" id="card-element"></div>
-                                        </div>
-                                        <br>
-                                        <div class="col-12 mx-auto text-center">
-                                            <div class="mx-auto text-center" 
-                                            id="card-errors">
+    <section>
+        <div class="container-fluid mx-auto p-5" id="payment-section">
+            <div class="row">
+                <div class="col-12 mx-auto text-center">
+                    <h2 class="header">Delivery &amp; Payment</h2>
+                    <br>
+                </div>
+                <div class="col-12 mx-auto text-center">
+                    <div class="row">
+                        <div class="card mx-auto text-center card-outline">
+                            <form class="form" action="{% url 'checkout' %}" method="POST" id="payment">
+                                <div class="form-row">
+                                    <div class="col-12 text-center">
+                                    {% csrf_token %}
+                                        <fieldset class="fields">
+                                            {{ order_form.full_name | as_crispy_field }}
+                                            {{ order_form.email | as_crispy_field }}
+                                            {{ order_form.phone_number | as_crispy_field }}
+                                            {{ order_form.street_address_1 | as_crispy_field }}
+                                            {{ order_form.street_address_2 | as_crispy_field }}
+                                            {{ order_form.county | as_crispy_field }}
+                                            {{ order_form.postcode | as_crispy_field }}
+                                            {{ order_form.city | as_crispy_field }}
+                                            {{ order_form.country | as_crispy_field }}
+                                            {{ order_form.email_print | as_crispy_field }}
+                                            <div class="form-check col-12  text-center">
+                                                {% if user.is_authenticated %}
+                                                    <label class="form-check-label " for="id-save-info">Save</label>
+                                                    <input type="checkbox" name="save-info" id="id-save-info">
+                                                {% else %}
+                                                    <label class="form-check-label " for="id-save-info"></label>
+                                                    <a class="btn btn-sm info-button" href="{% url 'account_signup' %}">Register</a>
+                                                    <a class="btn btn-sm info-button" href="{% url 'account_login' %}">Login</a>
+                                                {% endif %}
                                             </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="col-12 mx-auto text-center">
+                                                <legend>Card Details</legend>
+                                                <div class="mx-auto text-center" id="card-element"></div>
+                                            </div>
+                                            <br>
+                                            <div class="col-12 mx-auto text-center">
+                                                <div class="mx-auto text-center" 
+                                                id="card-errors">
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </fieldset>
+                                        <div class="col-12 mb-2 mx-auto text-center submit-button">
+                                            <button class="btn btn-outline page-button submit" id="submit-button">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                    Purchase
+                                            </button>
                                         </div>
-                                        <br>
-                                    </fieldset>
-                                    <div class="col-12 mb-2 mx-auto text-center submit-button">
-                                        <button class="btn btn-outline page-button submit" id="submit-button">
-                                            <i class="fas fa-shopping-cart"></i>
-                                                Purchase
-                                        </button>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
  
 <!--End of Delivery & Payment Section-->
 

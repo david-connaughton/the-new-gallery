@@ -133,6 +133,7 @@ div.dropdown-menu.show {
 
 .card-outline {
     border: solid #141411 2px;
+    background-color: #FBFFFC;
 }
 
 .card-title {
