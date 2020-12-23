@@ -9,7 +9,7 @@
     <div class="container-fluid mx-auto m-5 p-5" id="photo-section">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="header">{{ photo.title }}</h1>
+                <h1 class="header description">{{ photo.title }}</h1>
                 <br>
                 <a href="#" id="clicker">
                     <img src="{{ photo.image.url }}" class="img-fluid p-1" id="photo-img" alt="Photo Image">
@@ -20,7 +20,7 @@
                 </p>
                 <p>{{ photo.photographer }}</p>
                 <p>
-                    <small class="small">Description</small>
+                    <small class="small description">Description</small>
                 </p>
                 <p class="description">{{ photo.description }}</p>
                 <p>

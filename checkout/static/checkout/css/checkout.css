@@ -2,7 +2,8 @@
     text-align: center;
 }
 
-.fields {
+.fields,
+.input {
     display: inline;
     padding-top: 10px;
     /* padding-left: 90px;
@@ -25,7 +26,7 @@ select {
   padding: 10px 12px;
   border: 1px solid transparent;
   border-radius: 0px;
-  background-color: white;
+  background-color: #FBFFFC;
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
@@ -34,15 +35,15 @@ select {
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+  box-shadow: 0 1px 3px 0 #FBFFFC;
 }
 
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+  background-color: #FBFFFC !important;
 }
 
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+    color: #141411;
 }
 
 .fieldset-label {
@@ -52,7 +53,7 @@ select {
 
 #payment-form .form-control,
 #card-element {
-    color: #000;
+    color: #141411;
     border:  solid #c70000 1px !important;
     max-width: 450px;
 }

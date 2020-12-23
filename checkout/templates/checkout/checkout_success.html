@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<!--Header-->
+
+    <div class="container-fluid mx-auto row justify-content-center">
+        <h1 class="mt-5 pt-5 header">Order Successful</h1>
+        <br>
+    </div>
+    <div class="container-fluid mx-auto row justify-content-center">
+        <h5 class="header">Please see your order summary. An email will be sent to {{ order.email }}</h5>
+    </div>
+    <div class="row">
+        <div class="mx-auto text-center">
+            <h5 class="header">Proceed to </h5>
+            <a href="#payment-section" class="btn btn-outline page-button">
+                <i class="fas fa-credit-card"></i>
+                Payment
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid mx-auto row justify-content-center">
+        <h2 class="header">Order</h2>
+    </div>
+    <div class="mx-auto text-center">
+        <button class="btn btn-outline page-button"  id="order-button">
+            <i class="fas fa-shopping-cart"></i>
+                Show/Hide Order Details
+        </button>
+    </div>
+
+<!--End of Header Section-->
+
+<!--Order Details Section-->
+
+
+<!--End of Order Details Section-->
+
+
+
+{% endblock %}
+

@@ -93,13 +93,14 @@
                                         {{ order_form.city | as_crispy_field }}
                                         {{ order_form.country | as_crispy_field }}
                                         {{ order_form.email_print | as_crispy_field }}
-                                        <div class="form-check">
+                                        <div class="form-check col-12 text-center">
                                             {% if user.is_authenticated %}
-                                                <label for="">Save</label>
-                                                <input type="checkbox" name="" id="">
+                                                <label class="form-check-label " for="id-save-info">Save</label>
+                                                <input type="checkbox" name="save-info" id="id-save-info">
                                             {% else %}
-                                                <label for="">Save Details</label>
-                                                <input type="checkbox" name="save-details" id="save-details">
+                                                <label class="form-check-label " for="id-save-info"></label>
+                                                <a class="btn btn-sm info-button" href="{% url 'account_signup' %}">Register</a>
+                                                <a class="btn btn-sm info-button" href="{% url 'account_login' %}">Login</a>
                                             {% endif %}
                                         </div>
                                     </fieldset>
@@ -116,8 +117,8 @@
                                         </div>
                                         <br>
                                     </fieldset>
-                                    <div class="col-12 mb-2 mx-auto text-center">
-                                        <button class="btn btn-outline page-button submit" id="order-button-checkout">
+                                    <div class="col-12 mb-2 mx-auto text-center submit-button">
+                                        <button class="btn btn-outline page-button submit" id="submit-button">
                                             <i class="fas fa-shopping-cart"></i>
                                                 Purchase
                                         </button>
