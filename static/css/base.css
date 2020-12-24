@@ -170,11 +170,13 @@ div.dropdown-menu.show {
 select {
     background-color: #FBFFFC;
     font-family: 'Work Sans', sans-serif !important;
+    border: solid #c70000 1px !important;
 }
 
 select {
     width: 110px;
     margin-bottom: 5px;
+    
 }
 
 .modal-dialog {

@@ -15,28 +15,73 @@
         <h1 class="mt-5 pt-5 header">Order Successful</h1>
         <br>
     </div>
+    <br>
     <div class="container-fluid mx-auto row justify-content-center">
         <h5 class="header">Please see your order summary. An email will be sent to {{ order.email }}</h5>
     </div>
-    <div class="row">
-        <div class="mx-auto text-center">
-            <h5 class="header">Proceed to </h5>
-            <a href="#payment-section" class="btn btn-outline page-button">
-                <i class="fas fa-credit-card"></i>
-                Payment
-            </a>
+
+    <section>
+        <div class="container-fluid mx-auto m-5 p-5 order-details">
+            <div class="row">
+                <div class="card mx-auto text-center card-outline">
+                    <p>
+                        <small class="small">Order:</small>
+                    </p>
+                    <p>{{ order.order_number }}</p>
+                    <p>
+                        <small class="small">Date:</small>
+                    </p>
+                    <p>{{ order.date }}</p>
+                    <p>
+                        <small class="small">Order Cost</small>
+                    </p>
+                    <p>{{ order.order_total }}</p>
+                    <p>
+                        <small class="small">Name:</small>
+                    </p>
+                    <p>{{ order.full_name }}</p>
+                    <p>
+                        <small class="small">Street 1:</small>
+                    </p>
+                    <p>{{ order.street_address_1 }}</p>
+                    <p>
+                        <small class="small">Street 2</small>
+                    </p>
+                    <p>{{ order.street_address_2 }}</p>
+                    <p>
+                        <small class="small">County</small>
+                    </p>
+                    <p>{{ order.county }}</p>
+                    <p>
+                        <small class="small">Postcode</small>
+                    </p>
+                    <p>{{ order.postcode }}</p>
+                    <p>
+                        <small class="small">City</small>
+                    </p>
+                    <p>{{ order.city }}</p>
+                    <p>
+                        <small class="small">Country</small>
+                    </p>
+                    <p>{{ order.country }}</p>
+                    <p>
+                        <small class="small">Email Print</small>
+                    </p>
+                    <p>{{ order.email_print }}</p>
+                    <br>
+                    <p>Thank you for your custom!</p>
+                    <div class="col-12">
+                        <a href="{% url 'photos' %}" class="btn btn-outline page-button">
+                            <i class="far fa-image"></i>
+                                Visit Gallery
+                        </a>
+                    </div>
+                    <br>
+                </div>
+            </div>
         </div>
-    </div>
-    <br>
-    <div class="container-fluid mx-auto row justify-content-center">
-        <h2 class="header">Order</h2>
-    </div>
-    <div class="mx-auto text-center">
-        <button class="btn btn-outline page-button"  id="order-button">
-            <i class="fas fa-shopping-cart"></i>
-                Show/Hide Order Details
-        </button>
-    </div>
+    </section>
+
 
 <!--End of Header Section-->
 

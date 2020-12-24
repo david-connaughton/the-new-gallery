@@ -65,8 +65,16 @@
                                     <option value="5"></option>
                                 </datalist>
                                 <br>
-                                <div class="mx-auto text-center"><button type="submit" class="btn btn-sm info-button mr-2">Edit</button>
-                                <a href="{% url 'remove_from_cart' item.item_id %}" class="btn btn-sm info-button mr-2">Delete</a></div>
+                                <div class="mx-auto text-center">
+                                    <button type="submit" class="btn btn-sm info-button mr-2">
+                                        <i class="far fa-edit"></i>
+                                            Edit
+                                    </button>
+                                    <a href="{% url 'remove_from_cart' item.item_id %}" class="btn btn-sm info-button mr-2">
+                                        <i class="fas fa-trash"></i>
+                                            Delete
+                                    </a>
+                                </div>
                         </form>
                         <br>
                         <p>

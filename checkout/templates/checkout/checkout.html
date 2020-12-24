@@ -82,7 +82,7 @@
                         <div class="card mx-auto text-center card-outline">
                             <form class="form" action="{% url 'checkout' %}" method="POST" id="payment">
                                 <div class="form-row">
-                                    <div class="col-12 text-center">
+                                    <div class="col-12 mx-auto text-center">
                                     {% csrf_token %}
                                         <fieldset class="fields">
                                             {{ order_form.full_name | as_crispy_field }}
@@ -95,15 +95,22 @@
                                             {{ order_form.city | as_crispy_field }}
                                             {{ order_form.country | as_crispy_field }}
                                             {{ order_form.email_print | as_crispy_field }}
-                                            <div class="form-check col-12  text-center">
-                                                {% if user.is_authenticated %}
-                                                    <label class="form-check-label " for="id-save-info">Save</label>
-                                                    <input type="checkbox" name="save-info" id="id-save-info">
+                                            <div class="form-check col-12 mx-auto">
+                                                <div class="row">{% if user.is_authenticated %}
+                                                <label class="form-check-label " for="id-save-info">Save</label>
+                                                <input type="checkbox" name="save-info" id="id-save-info">
                                                 {% else %}
-                                                    <label class="form-check-label " for="id-save-info"></label>
-                                                    <a class="btn btn-sm info-button" href="{% url 'account_signup' %}">Register</a>
-                                                    <a class="btn btn-sm info-button" href="{% url 'account_login' %}">Login</a>
-                                                {% endif %}
+                                                <label class="form-check-label " for="id-save-info"></label>
+                                                <a class="btn btn-outline info-button mr-1" href="{% url 'account_signup' %}">
+                                                <i class="fas fa-user-plus"></i>
+                                                Register
+                                                </a>
+                                                <br>
+                                                <a class="btn btn-outline info-button" href="{% url 'account_login' %}">
+                                                <i class="fas fa-sign-in-alt"></i>
+                                                Login
+                                                </a>
+                                                {% endif %}</div>
                                             </div>
                                         </fieldset>
                                         <fieldset>

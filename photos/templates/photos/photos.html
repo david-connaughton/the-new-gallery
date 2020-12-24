@@ -79,7 +79,10 @@
                                 <small class="small">Price</small>
                             </p>
                             <p class="card-text">€{{ photo.price }}</p>
-                            <a href="{% url 'photo_detail' photo.id %}" class="btn btn-sm info-button">Further Details</a>
+                            <a href="{% url 'photo_detail' photo.id %}" class="btn btn-sm info-button">
+                                <i class="fas fa-info-circle"></i>
+                                    Further Details
+                            </a>
                         </div>
                     </div>
                 </div>

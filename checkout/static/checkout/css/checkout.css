@@ -25,6 +25,10 @@ marquee {
     color: #c70000;
 }
 
+.form-check-label {
+    display: inline;
+}
+
 /* Stripe Styling from Stripe Documentation */
 
 .StripeElement,
