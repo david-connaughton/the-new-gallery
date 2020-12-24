@@ -45,7 +45,7 @@
 
                     <!--Filter For Mobile-->
                     <form class="small-filter">
-                        <select name="q" id="q">
+                        <select name="q" id="q" class="q-field">
                             <option value="" disbaled selected>Select</option>
                             <option value="Forest" name="q" >Forest</option>
                             <option value="Nature" name="q" >Nature</option>
@@ -55,8 +55,14 @@
                             <option value="Street" name="q" >Street</option>
                         </select>
                         <br>
-                        <input type="submit" class="btn btn-sm info-button">
-                        <a href="{% url 'photos' %}" class="btn btn-sm info-button">View All</a>
+                        <button type="submit" class="btn btn-sm info-button">
+                            <i class="far fa-check-circle"></i>
+                                Select
+                        </button>
+                        <a href="{% url 'photos' %}" class="btn btn-sm info-button">
+                            <i class="far fa-image"></i>
+                                View All
+                        </a>
                     </form>
                 </div>
             </div>

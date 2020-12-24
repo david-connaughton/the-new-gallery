@@ -201,7 +201,12 @@ select {
     }
 
     .small-filter {
-        display: block;
+        display: inline;
+        /* width: 130px; */
+    }
+
+    .q-field {
+        width: 130px;
     }
 
     .medium-filter {
@@ -234,7 +239,12 @@ select {
     }
 
     .small-filter {
-        display: block;
+        display: inline;
+        width: 130px;
+    }
+
+    .q-field {
+        width: 130px;
     }
 
     .modal-dialog {

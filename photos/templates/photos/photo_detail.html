@@ -48,9 +48,15 @@
                         </div>
                         <div class="col-12">
                             <a href="{% url 'photos' %}" class="btn btn-outline page-button mr-2">
-                                <span>View More</span>
+                                <span>
+                                    <i class="far fa-image"></i>
+                                        View Gallery
+                                </span>
                             </a>
-                            <input type="submit" class="btn btn-outline page-button mr-2" value="Add to Cart">
+                            <button type="submit" class="btn btn-outline page-button mr-2" value="Add to Cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                    Add To Cart
+                            </button>
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
