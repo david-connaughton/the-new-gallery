@@ -21,6 +21,10 @@ select {
     display: none;
 }
 
+marquee {
+    color: #c70000;
+}
+
 /* Stripe Styling from Stripe Documentation */
 
 .StripeElement,
