@@ -47,15 +47,17 @@
                     <p>
                         <small class="small">Phone:</small>
                     </p>
-                    <p>{{ order.phone }}</p>
+                    <p>{{ order.phone_number }}</p>
                     <p>
                         <small class="small">Street 1:</small>
                     </p>
                     <p>{{ order.street_address_1 }}</p>
-                    <p>
-                        <small class="small">Street 2</small>
-                    </p>
-                    <p>{{ order.street_address_2 }}</p>
+                    {% if order.street_address_2 %}
+                        <p>
+                            <small class="small">Street 2</small>
+                        </p>
+                        <p>{{ order.street_address_2 }}</p>
+                    {% endif %}
                     <p>
                         <small class="small">County</small>
                     </p>

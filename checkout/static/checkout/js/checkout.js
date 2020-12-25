@@ -6,8 +6,6 @@ $(document).ready(function() {
     });
 })
 
-
-
 // Stripe section from Stripe and Code Institute
 
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
