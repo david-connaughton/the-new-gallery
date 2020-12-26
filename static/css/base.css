@@ -134,6 +134,7 @@ div.dropdown-menu.show {
 .card-outline {
     border: solid #141411 2px;
     background-color: #FBFFFC;
+    padding: 10px;
 }
 
 .card-title {
@@ -163,24 +164,46 @@ div.dropdown-menu.show {
 }
 
 .form-group {
-    width: 200px;
+   min-width: 150px; 
+   max-width: 300px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 .form-control,
-select {
+select,
+#id_email {
     background-color: #FBFFFC;
     font-family: 'Work Sans', sans-serif !important;
     border: solid #c70000 1px !important;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.requiredField {
+    display: none;
 }
 
 select {
     width: 110px;
     margin-bottom: 5px;
-    
+}
+
+.login-field {
+    padding-left: 90px;
 }
 
 .modal-dialog {
     width: 600px;
+}
+
+.page_detail_button {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*-----------------------Media Queries*/
@@ -192,7 +215,8 @@ select {
         max-height: 750px;
     }
 
-    .info-button {
+    .info-button,
+    .page-button {
         font-size: 10px;
     }
 
@@ -217,6 +241,10 @@ select {
         display: none;
     }
 
+    .form-control {
+        margin: 45px;
+    }
+
 }
 
 @media screen and (min-width: 501px) and (max-width: 767px) {
@@ -226,7 +254,8 @@ select {
         height: 800px;
     }
 
-    .info-button {
+    .info-button,
+    .page-button {
         font-size: 10px;
     }
 

@@ -29,6 +29,12 @@ marquee {
     display: inline;
 }
 
+.checkout-button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /* Stripe Styling from Stripe Documentation */
 
 .StripeElement,
@@ -77,8 +83,8 @@ marquee {
 @media screen and (max-width: 767px) {
 
     .fields {
-        padding-left: 45px;
-        padding-right: 45px;
+        padding-left: 30px;
+        padding-right: 30px;
         padding-top: 10px; 
     }
 

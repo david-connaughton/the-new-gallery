@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'photos/css/photos.css' %}">
+
+{% endblock %}
+
 {% block content %}
 
 <!--Photo Information & Quantity Selector-->
@@ -47,16 +53,16 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <a href="{% url 'photos' %}" class="btn btn-outline page-button mr-2">
+                            <button type="submit" class="btn btn-outline page-button page_detail_button mr-2 mb-2" value="Add to Cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                    Add To Cart
+                            </button>
+                            <a href="{% url 'photos' %}" class="btn btn-outline page-button page_detail_button mr-2 mb-2">
                                 <span>
                                     <i class="far fa-image"></i>
                                         View Gallery
                                 </span>
                             </a>
-                            <button type="submit" class="btn btn-outline page-button mr-2" value="Add to Cart">
-                                <i class="fas fa-shopping-cart"></i>
-                                    Add To Cart
-                            </button>
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>

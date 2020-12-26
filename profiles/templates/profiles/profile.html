@@ -4,7 +4,7 @@
 
 {% block extra_css %}
 
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
 
 {% endblock %}
 
@@ -13,7 +13,7 @@
 <!--Header-->
 
     <div class="container-fluid mx-auto row justify-content-center">
-        <h1 class="mt-5 pt-5 header">Profile</h1>
+        <h1 class="mt-5 pt-5 header">{{ profile }}Profile</h1>
         <br>
     </div>
 
@@ -23,7 +23,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mx-auto text-center card-outline">
-                            <p>test</p>
+                            <form action="{% url 'profile' %}" method="POST">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <button class="btn btn-success">Submit</button>
+                            </form>
+                            <!-- <p>test</p>
                             <p>
                                 <small class="small">Order:</small>
                             </p>
@@ -75,7 +80,7 @@
                                     <i class="far fa-image"></i>
                                         Visit Gallery
                                 </a>
-                            </div>
+                            </div> -->
                             <br>
                         </div>
                     </div>
