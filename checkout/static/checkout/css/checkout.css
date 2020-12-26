@@ -2,11 +2,11 @@
     text-align: center;
 }
 
-.fields,
+/* .fields,
 .input {
     display: inline;
     padding-top: 10px;
-}
+} */
 
 .form-all {
     background-color: #FBFFFC;
@@ -82,11 +82,11 @@ marquee {
 
 @media screen and (max-width: 767px) {
 
-    .fields {
+    /* .fields {
         padding-left: 30px;
         padding-right: 30px;
         padding-top: 10px; 
-    }
+    } */
 
 }
 
