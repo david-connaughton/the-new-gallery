@@ -1,0 +1,15 @@
+.requiredField {
+    display: block !important;
+}
+
+.asteriskField {
+    display: none;
+}
+
+.textarea {
+    resize: none;
+}
+
+.review-text {
+    text-transform: capitalize;
+}
