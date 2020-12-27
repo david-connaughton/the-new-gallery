@@ -13,15 +13,43 @@
 <!--Header-->
 
     <div class="container-fluid mx-auto row justify-content-center">
-        <h1 class="mt-5 pt-5 header profile-header">{{ profile }}'s Profile</h1>
+        <h1 class="mt-5 pt-5 header profile-header" id="top">{{ profile }}'s Profile</h1>
         <br>
     </div>
+
+    <!--Filter-->
+
+    <section class="profile-filter">
+        <div class="container-fluid mx-auto row justify-content-center">
+            <div class="row">
+                <div class="col-12 mx-auto">
+                    <h2 class="pt-5 text-center header">Filter</h2>
+                    <a href="#details" class="btn btn-outline page-button mr-1">
+                        <i class="fas fa-info-circle"></i>
+                            Details
+                    </a>
+                                
+                    <a href="#orders" class="btn btn-outline page-button mr-1">
+                        <i class="fas fa-shopping-cart"></i>
+                            Orders
+                    </a>
+                    
+                    <a href="#reviews" class="btn btn-outline page-button">
+                        <i class="fas fa-pen-square"></i>
+                            Reviews
+                    </a>
+                </div>  
+            </div>
+        </div>
+    </section>
+
+<!--End of Filter Section-->
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4 m-5 p-5 mx-auto text-center">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12" id="details">
                         <h2>Your Details</h2>
                         <div class="card mx-auto text-center card-outline">
                             <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
@@ -29,7 +57,7 @@
                                 {{ form|crispy }}
                                 <button class="btn btn-outline page-button">
                                     <i class="fas fa-pen-square"></i>
-                                        Submit
+                                    Submit
                                 </button>
                             </form>
                             <br>
@@ -37,21 +65,137 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mx-auto text-center">
+            <div class="col-md-4 m-5 p-5 mx-auto text-center">
                 <div class="row">
-                    <div class="col-md-12">
-                        <p>test</p>
+                    <div class="col-md-12" id="orders">
+                        <h2>Your Orders</h2>
+                        {% for order in orders %}
+                        <div class="container-fluid mx-auto  order-details">
+                            <div class="row">
+                                <div class="card mx-auto text-center card-outline">
+                                    <p>
+                                        <small class="small">Order:</small>
+                                    </p>
+                                    <p>{{ order.order_number }}</p>
+                                    <p>
+                                        <small class="small">Date:</small>
+                                    </p>
+                                    <p>{{ order.date }}</p>
+                                    <p>
+                                        <small class="small">Order Cost</small>
+                                    </p>
+                                    <p>{{ order.order_total }}</p>
+                                    <p>
+                                        <small class="small">Name:</small>
+                                    </p>
+                                    <p>{{ order.full_name }}</p>
+                                    <p>
+                                        <small class="small">Email:</small>
+                                    </p>
+                                    <p>{{ order.email }}</p>
+                                    <p>
+                                        <small class="small">Phone:</small>
+                                    </p>
+                                    <p>{{ order.phone_number }}</p>
+                                    <p>
+                                        <small class="small">Street 1:</small>
+                                    </p>
+                                    <p>{{ order.street_address_1 }}</p>
+                                    {% if order.street_address_2 %}
+                                        <p>
+                                            <small class="small">Street 2</small>
+                                        </p>
+                                        <p>{{ order.street_address_2 }}</p>
+                                    {% endif %}
+                                    <p>
+                                        <small class="small">County</small>
+                                    </p>
+                                    <p>{{ order.county }}</p>
+                                    <p>
+                                        <small class="small">Postcode</small>
+                                    </p>
+                                    <p>{{ order.postcode }}</p>
+                                    <p>
+                                        <small class="small">City</small>
+                                    </p>
+                                    <p>{{ order.city }}</p>
+                                    <p>
+                                        <small class="small">Country</small>
+                                    </p>
+                                    <p>{{ order.country }}</p>
+                                    <p>
+                                        <small class="small">Email Print</small>
+                                    </p>
+                                    <p>{{ order.email_print }}</p>
+                                    <br>
+                                    <p>Thank you for your custom!</p>
+                                    <div class="col-12">
+                                        <a href="{% url 'photos' %}" class="btn btn-outline page-button">
+                                            <i class="far fa-image"></i>
+                                                Visit Gallery
+                                        </a>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mx-auto text-center">
+            <div class="col-md-4 m-5 p-5 mx-auto text-center">
                 <div class="row">
-                    <div class="col-md-12">
-                        <p>test</p>
+                    <div class="col-md-12" id="reviews">
+                        <h2>Your Reviews</h2>
+                        {% for review in reviews %}
+                        <div class="card mx-auto mt-1 text-center card-outline">
+                            <div class="card-body">
+                                <p>
+                                    <small class="small">Date Posted</small>
+                                </p>
+                                <p class="card-title">{{ review.date_posted }}</p>
+                                <p>
+                                    <small class="small">Favourite Image</small>
+                                </p>
+                                <p class="card-text review-text">{{ review.favourite_image }}</p>
+                                <p>
+                                    <small class="small">Comments</small>
+                                </p>
+                                <p class="card-text review-text">{{ review.review }}</p>
+                                <p>
+                                    <small class="small">Rating</small>
+                                </p>
+                                <p class="card-text">{{ review.rating }}/5 </p>
+                                <p>
+                                    <small class="small">Image</small>
+                                </p>
+                                <img class="card-img-top" src="/media/{{ review.favourite_image }}.jpg"
+                                    alt="Card image cap">
+                                {% if review.user == user %}
+                                <a href="{% url 'review_update' review.id %}" class="btn btn-outline page-button m-3">
+                                    <i class="fas fa-pen-square"></i>
+                                    Edit
+                                </a>
+                                <a href="{% url 'review_delete' review.id %}" class="btn btn-outline page-button m-3">
+                                    <i class="fas fa-trash"></i>
+                                    Delete
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="container-fluid mx-auto row justify-content-center">
+        <a href="#top" class="btn btn-outline page-button m-5">
+            <i class="fas fa-arrow-up"></i>
+                Back to Top
+        </a>
+        <br>
     </div>
 
 <!--End of Header Section-->
@@ -61,4 +205,3 @@
 
 
 {% endblock %}
-

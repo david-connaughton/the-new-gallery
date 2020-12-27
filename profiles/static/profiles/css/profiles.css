@@ -9,3 +9,21 @@
 .profile-header {
     text-transform: capitalize;
 }
+
+.review-text {
+    text-transform: capitalize;
+}
+
+.page-button {
+    display: inline;
+}
+
+/*-----------------------Media Queries*/
+
+@media screen and (min-width: 768px) {
+
+    .profile-filter {
+        display: none;
+    }
+
+}

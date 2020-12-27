@@ -3,6 +3,7 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order 
+from reviews.models import Review
 
 
 def profile(request):
@@ -16,11 +17,13 @@ def profile(request):
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
     template = 'profiles/profile.html'
+    reviews = Review.objects.filter(user=request.user)
 
     context = {
         'profile': profile,
         'form': form,
         'orders': orders,
+        'reviews': reviews,
         'on_profile_page': True,
     }
     return render(request, template, context)
