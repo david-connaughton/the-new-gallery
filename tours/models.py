@@ -38,14 +38,18 @@ class Tour(models.Model):
         (VEGETARIAN, 'Vegetarian'),
         (VEGAN, 'Vegan')
     )
-    tour = models.CharField(choices=COUNTRY_CHOICES, max_length=20)
+    tour = models.CharField(
+           choices=COUNTRY_CHOICES, max_length=20, default=IRELAND)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date_preference = models.CharField(choices=DATE_CHOICES, max_length=20)
+    date_preference = models.CharField(
+                      choices=DATE_CHOICES, max_length=20, default=JULY)
     analogue_or_digital = models.CharField(
-                          choices=CAMERA_CHOICES, max_length=20)
-    skill_level = models.CharField(choices=SKILL_CHOICES, max_length=20)
+                          choices=CAMERA_CHOICES,
+                          max_length=20, default=ANALOGUE)
+    skill_level = models.CharField(choices=SKILL_CHOICES,
+                                   max_length=20, default=BEGINNER)
     dietary_requirements = models.CharField(
-                           choices=DIET_CHOICES, max_length=20)
+                           choices=DIET_CHOICES, max_length=20, default=NONE)
     any_comments = models.TextField(
         max_length=200, null=False, blank=False)
     date_posted = models.DateTimeField(default=timezone.now)

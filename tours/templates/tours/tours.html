@@ -29,6 +29,37 @@
         </article>
         <br>
     </div>
+    
+    <div class="col-12 mx-auto text-center">
+        <div class="row">
+            <div class="card mx-auto text-center card-outline">
+                <form class="form" action="{% url 'tours' %}" method="POST">
+                    <div class="form-row">
+                        <div class="col-12 mx-auto text-center">
+                            {% csrf_token %}
+                            <fieldset class="fields">
+                                {{ form.tour | as_crispy_field}}
+                                {{ form.date_preference | as_crispy_field}}
+                                {{ form.analogue_or_digital | as_crispy_field}}
+                                {{ form.skill_level | as_crispy_field}}
+                                {{ form.dietary_requirements | as_crispy_field}}
+                                {{ form.any_comments | as_crispy_field }}
+                            </fieldset>
+                            <div class="form-group">
+                <button class="btn btn-outline page-button mb-5">
+                    <i class="fas fa-pen-square"></i>
+                        Submit
+                </button>
+            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
 
 
     <div class="container-fluid">
@@ -39,7 +70,7 @@
                         <h2>Tour Options</h2>
                         <div class="card mx-auto text-center card-outline">
                             <p>
-                                <small class="small">Tour</small>
+                                <small class="small">Tour 1</small>
                             </p>
                             <p>Wild Atlantic Way Ireland</p>
                             <p>
