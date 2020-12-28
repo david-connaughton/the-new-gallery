@@ -5,12 +5,14 @@ from .models import Review
 
 
 class ReviewListView(ListView):
+    """A custom class for Read Reviews"""
     model = Review
     template_name = 'reviews/reviews.html'
     context_object_name = 'reviews'
 
 
 class ReviewCreateView(CreateView):
+    """A custom class to Create Reviews"""
     model = Review
     fields = ['favourite_image', 'review', 'rating', 'city', 'country']
 
@@ -20,6 +22,7 @@ class ReviewCreateView(CreateView):
 
 
 class ReviewUpdateView(UpdateView):
+    """A custom class to Edit Reviews"""
     model = Review
     fields = ['favourite_image', 'review', 'rating', 'city', 'country']
 
@@ -35,6 +38,7 @@ class ReviewUpdateView(UpdateView):
 
 
 class ReviewDeleteView(DeleteView):
+    """A custom class to Delete Reviews"""
     model = Review
     success_url = '/reviews'
 

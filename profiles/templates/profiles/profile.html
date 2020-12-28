@@ -43,7 +43,11 @@
         </div>
     </section>
 
-<!--End of Filter Section-->
+    <!--End of Filter Section-->
+
+<!--End of Header Section-->
+
+<!--Profile Details Section-->
 
     <div class="container-fluid">
         <div class="row">
@@ -65,6 +69,11 @@
                     </div>
                 </div>
             </div>
+
+<!--End of Profile Details Section-->
+
+<!--Order Details Section-->
+
             <div class="col-md-4 m-5 p-5 mx-auto text-center">
                 <div class="row">
                     <div class="col-md-12" id="orders">
@@ -143,6 +152,11 @@
                     </div>
                 </div>
             </div>
+
+<!--End of Order Details Section-->
+
+<!--Reviews Section-->
+
             <div class="col-md-4 m-5 p-5 mx-auto text-center">
                 <div class="row">
                     <div class="col-md-12" id="reviews">
@@ -169,7 +183,7 @@
                                 <p>
                                     <small class="small">Image</small>
                                 </p>
-                                <img class="card-img-top" src="/media/{{ review.favourite_image }}.jpg"
+                                <img class="card-img-top mb-2" src="/media/{{ review.favourite_image }}.jpg"
                                     alt="Card image cap">
                                 {% if review.user == user %}
                                 <a href="{% url 'review_update' review.id %}" class="btn btn-outline page-button m-3">
@@ -187,8 +201,14 @@
                     {% endfor %}
                 </div>
             </div>
+
+<!--End of Reviews Section-->
+
         </div>
     </div>
+
+
+<!--Back To Top Section-->
 
     <div class="container-fluid mx-auto row justify-content-center">
         <a href="#top" class="btn btn-outline page-button m-5">
@@ -198,10 +218,6 @@
         <br>
     </div>
 
-<!--End of Header Section-->
-
-
-
-
+<!--End of Back To Top Section-->
 
 {% endblock %}

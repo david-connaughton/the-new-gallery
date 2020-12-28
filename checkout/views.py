@@ -16,6 +16,7 @@ import stripe
 
 
 def checkout(request):
+    """A view for checkout page"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -91,6 +92,7 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
+    """A view for checout success"""
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 

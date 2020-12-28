@@ -7,6 +7,7 @@ from reviews.models import Review
 
 
 def profile(request):
+    """A view for user profile"""
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':

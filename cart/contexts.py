@@ -1,12 +1,14 @@
 """Inspired by Code Institute Tutorial"""
 
 from django.conf import settings
+"""Re-purposed from Code Institute Tutorial"""
+
 from django.shortcuts import get_object_or_404
 from photos.models import Photo
 
 
 def cart_contents(request):
-
+    """A view for Cart Contents"""
     cart_items = []
     total = 0
     photo_count = 0

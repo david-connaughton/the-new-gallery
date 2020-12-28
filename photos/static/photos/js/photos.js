@@ -10,7 +10,5 @@ $(document).ready(function(){
     $('#clicker').click(function() {
         $('#modal-main-id').attr('src', $('#photo-img').attr('src'));
         $('#myModal').modal('show');
-    });  
-    console.log('HELLO');
-      
+    });    
 });

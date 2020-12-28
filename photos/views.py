@@ -22,6 +22,7 @@ def photos(request):
 
 
 def photo_detail(request, photo_id):
+    """A custom view for individual photo detail"""
     photo = get_object_or_404(Photo, pk=photo_id)
     context = {
         'photo': photo,

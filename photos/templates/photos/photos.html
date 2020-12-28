@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'photos/css/photos.css' %}">
+
+{% endblock %}
+
 {% block content %}
 
 <!--Header-->
@@ -14,7 +21,9 @@
 <!--Article-->
 
     <article>
-        <p class="text-center mb-5">Please peruse our selection of bespoke Photographs.</p>
+        <p class="text-center">Please peruse our selection of bespoke Photographs.</p>
+        <p class="text-center charity">For the foreseeable future, we are not charging for postage.</p>
+        <p class="text-center mb-5 charity">We have opted to donate 5% of our profits to charity and encourage our customers to make a similar donation in lieu of the waived delivery charge</p>
     </article>
 
 <!--End of Article Section-->
@@ -44,6 +53,7 @@
                     </form>
 
                     <!--Filter For Mobile-->
+
                     <form class="small-filter">
                         <select name="q" id="q" class="q-field">
                             <option value="" disbaled selected>Select</option>
@@ -64,6 +74,9 @@
                                 View All
                         </a>
                     </form>
+
+                    <!--End of Filter For Mobile-->
+                    
                 </div>
             </div>
         </div>
