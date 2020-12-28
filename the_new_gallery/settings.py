@@ -117,7 +117,6 @@ WSGI_APPLICATION = 'the_new_gallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-        'default': {
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -128,13 +127,7 @@ else:
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
-    }       }
     }
-# }
-
-DATABASES = {
-    'default': dj_database_url.parse('postgres://orlppsjfkzcyjh:c77cf1c3ce4e14c7574d93971916cd3b20ee8ba1a14b7ab38592e69c326f7e7e@ec2-34-251-118-151.eu-west-1.compute.amazonaws.com:5432/dbuv3j6rnt0js0')
-}
 
 
 # Password validation
