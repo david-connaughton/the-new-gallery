@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, reverse
-from django.contrib import messages
 from .models import Tour
 from .forms import TourForm
 
