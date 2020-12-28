@@ -1,0 +1,20 @@
+Hello {{ order.full_name }},
+
+You recently completed a purchase from The New Gallery.
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: €{{ order.order_total }}
+
+All of our Prints ship as 20x16 inches.
+
+Your order will be delivered to {{ order.street_address_1 }}, {{ order.city }}, {{ order.country }}.
+
+For the foreseeable future, we are not charging for postage. We have opted to donate 5% of our profits to charity and encourage our customers to make a similar donation in lieu of the waived delivery charge.
+
+If you opted to have a copy of your print sent via email, our Image Team will arrange the same in the coming days. Please contact us at {{ contact_email }} if you have any queries about your order.
+
+Thank you very much for your custom.
+
+The New Gallery.
