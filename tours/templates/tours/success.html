@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load cart_tools %}
 
 {% block extra_css %}
 
@@ -17,17 +16,24 @@
         <br>
     </div>
 
-    
-    
-
-
-
-
-
 <!--End of Header Section-->
 
+<!--Content Section-->
 
+    <div class="container-fluid mx-auto row justify-content-center">
+        <h5 class="mt-5 pt-5 header">We have received your enquiry about our tours and will be in touch at a later date.</h5>
+        <br>
+    </div>
 
+    <div class="row">
+        <div class="mt-3 mx-auto text-center">
+            <a href="{% url 'home' %}" class="btn btn-outline page-button">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </div>
+    </div> 
 
-
+<!--End of Content Section-->
+    
 {% endblock %}

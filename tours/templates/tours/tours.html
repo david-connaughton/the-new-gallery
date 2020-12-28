@@ -1,10 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
-{% load cart_tools %}
 
 {% block extra_css %}
 
-<link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+<link rel="stylesheet" href="{% static 'tours/css/tours.css' %}">
+
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUI4JN3UiePUnMdu8_IYdqoQbrpCTOiXc&callback=initMap&libraries=places&v=weekly"
+    defer></script>
+
+<script src="{% static 'tours/js/tours.js' %}"></script>
 
 {% endblock %}
 
@@ -12,63 +22,41 @@
 
 <!--Header-->
 
-    <div class="container-fluid mx-auto row justify-content-center">
-        <h1 class="mt-5 pt-5 header profile-header" id="top">Tours</h1>
+<div class="container-fluid mx-auto row justify-content-center">
+    <h1 class="mt-5 pt-5 header profile-header" id="top">Tours</h1>
+    <br>
+</div>
+
+<!--End of Header Section-->
+
+<!--Article-->
+
+<div class="container-fluid mx-auto row justify-content-center">
+    <article>
+        <h3>For Summer 2021, The New Gallery has ambitious plans...</h3>
         <br>
-    </div>
-
-    <div class="container-fluid mx-auto row justify-content-center">
-        <article>
-            <h3>For Summer 2021, The New Gallery has ambitious plans...</h3>
-            <br>
-            <p class="text-center">We plan to launch curated tours marrying our interests of Photography and Cycling.</p>
-            <br>
-            <p class="text-center">Full Pricing and Dates are to be confirmed.</p>
-            <br>
-            <p class="text-center">To register your interest please complete the <a href="#">form</a> below.</p>
-        </article>
+        <p class="text-center">We plan to launch curated tours marrying our interests of Photography and Cycling.</p>
         <br>
-    </div>
-    
-    <div class="col-12 mx-auto text-center">
-        <div class="row">
-            <div class="card mx-auto text-center card-outline">
-                <form class="form" action="{% url 'tours' %}" method="POST">
-                    <div class="form-row">
-                        <div class="col-12 mx-auto text-center">
-                            {% csrf_token %}
-                            <fieldset class="fields">
-                                {{ form.tour | as_crispy_field}}
-                                {{ form.date_preference | as_crispy_field}}
-                                {{ form.analogue_or_digital | as_crispy_field}}
-                                {{ form.skill_level | as_crispy_field}}
-                                {{ form.dietary_requirements | as_crispy_field}}
-                                {{ form.any_comments | as_crispy_field }}
-                            </fieldset>
-                            <div class="form-group">
-                <button class="btn btn-outline page-button mb-5">
-                    <i class="fas fa-pen-square"></i>
-                        Submit
-                </button>
-            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+        <p class="text-center">Full Pricing and Dates are to be confirmed.</p>
+        <br>
+        <p class="text-center">To register your interest please complete the <a href="#tour">form</a> below.</p>
+    </article>
+    <br>
+</div>
 
+<!--End of Article Section-->
 
+<!--Tour Options-->
 
-
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 m-5 p-5 mx-auto text-center">
-                <div class="row">
-                    <div class="col-md-12" id="details">
-                        <h2>Tour Options</h2>
-                        <div class="card mx-auto text-center card-outline">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 m-5 p-5 mx-auto text-center">
+            <div class="row">
+                <div class="col-md-12 mb-2" id="details">
+                    <h2>Tour Options</h2>
+                    <div class="card mx-auto text-center card-outline">
+                        <img class="card-img-top" src="/media/lighthouse.jpg" alt="Card image cap">
+                        <div class="card-body">
                             <p>
                                 <small class="small">Tour 1</small>
                             </p>
@@ -80,108 +68,165 @@
                             <p>
                                 <small class="small">Duration:</small>
                             </p>
-                            <p>5 Days</p>
+                            <p>7 Days</p>
                             <p>
-                                <small class="small">Name:</small>
+                                <small class="small">Start:</small>
                             </p>
-                            <br>
+                            <p>Inishowen</p>
+                            <p>
+                                <small class="small">Finish:</small>
+                            </p>
+                            <p>Kinsale</p>
+                            <p>
+                                <small class="small">Details:</small>
+                            </p>
+                            <p>Taking in Ireland's beautiful West Coast, with proposed stops in Sligo, Galway, Clare and
+                                Dingle.</p>
+                            <a href="#tour" class="btn btn-outline page-button m-3 text-center">
+                                <i class="fas fa-info-circle"></i>
+                                Enquiry Form
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 m-5 p-5 mx-auto text-center">
-                <div class="row">
-                    <div class="col-md-12" id="orders">
-                        <h2>Your Orders</h2>
-                        {% for order in orders %}
-                        <div class="container-fluid mx-auto  order-details">
-                            <div class="row">
-                                <div class="card mx-auto text-center card-outline">
-                                    <p>
-                                        <small class="small">Order:</small>
-                                    </p>
-                                    <p>{{ order.order_number }}</p>
-                                    <p>
-                                        <small class="small">Date:</small>
-                                    </p>
-                                    <p>{{ order.date }}</p>
-                                    <p>
-                                        <small class="small">Order Cost</small>
-                                    </p>
-                                    <p>{{ order.order_total }}</p>
-                                    <p>
-                                        <small class="small">Name:</small>
-                                    </p>
-                                    <p>{{ order.full_name }}</p>
-                                    <p>
-                                        <small class="small">Email:</small>
-                                    </p>
-                                    <p>{{ order.email }}</p>
-                                    <p>
-                                        <small class="small">Phone:</small>
-                                    </p>
-                                    <p>{{ order.phone_number }}</p>
-                                    <p>
-                                        <small class="small">Street 1:</small>
-                                    </p>
-                                    <p>{{ order.street_address_1 }}</p>
-                                    {% if order.street_address_2 %}
-                                        <p>
-                                            <small class="small">Street 2</small>
-                                        </p>
-                                        <p>{{ order.street_address_2 }}</p>
-                                    {% endif %}
-                                    <p>
-                                        <small class="small">County</small>
-                                    </p>
-                                    <p>{{ order.county }}</p>
-                                    <p>
-                                        <small class="small">Postcode</small>
-                                    </p>
-                                    <p>{{ order.postcode }}</p>
-                                    <p>
-                                        <small class="small">City</small>
-                                    </p>
-                                    <p>{{ order.city }}</p>
-                                    <p>
-                                        <small class="small">Country</small>
-                                    </p>
-                                    <p>{{ order.country }}</p>
-                                    <p>
-                                        <small class="small">Email Print</small>
-                                    </p>
-                                    <p>{{ order.email_print }}</p>
-                                    <br>
-                                    <p>Thank you for your custom!</p>
-                                    <div class="col-12">
-                                        <a href="{% url 'photos' %}" class="btn btn-outline page-button">
-                                            <i class="far fa-image"></i>
-                                                Visit Gallery
-                                        </a>
-                                    </div>
-                                    <br>
-                                </div>
-                            </div>
+                <br>
+                <div class="col-md-12">
+                    <div class="card mx-auto text-center card-outline">
+                        <img class="card-img-top" src="/media/cafe.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p>
+                                <small class="small">Tour 2</small>
+                            </p>
+                            <p>The French Riviera</p>
+                            <p>
+                                <small class="small">Date:</small>
+                            </p>
+                            <p>August 2021</p>
+                            <p>
+                                <small class="small">Duration:</small>
+                            </p>
+                            <p>7 Days</p>
+                            <p>
+                                <small class="small">Start:</small>
+                            </p>
+                            <p>Nice</p>
+                            <p>
+                                <small class="small">Finish:</small>
+                            </p>
+                            <p>Marseille</p>
+                            <p>
+                                <small class="small">Details:</small>
+                            </p>
+                            <p>Taking in The French Riviera, with proposed stops in Cannes, Fréjus, Saint-Tropez and
+                                Toulon.</p>
+                            <a href="#tour" class="btn btn-outline page-button m-3 text-center">
+                                <i class="fas fa-info-circle"></i>
+                                Enquiry Form
+                            </a>
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-md-6 m-5 p-5 mx-auto text-center">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Map</h2>
+                    <div id="right-panel m-5 p-5">
+                        <div class="card mx-auto text-center card-outline">
+                            <div class="card-body">
+                                <p>Start:</p>
+                                <select id="start">
+                                    <option value="inishowen, IE">Inishowen</option>
+                                    <option value="nice, FR">Nice</option>
+                                </select>
+                                <br>
+                                <p>Stops:</p>
+                                <i>(Ctrl+Click or Cmd+Click for multiple selections</i>
+                                <select multiple id="waypoints">
+                                    <option value="sligo, IE">Sligo</option>
+                                    <option value="galway, IE">Galway</option>
+                                    <option value="clare, IE">Clare</option>
+                                    <option value="dingle, IE">Dingle</option>
+                                    <option value="cannes, FR">Cannes</option>
+                                    <option value="fréjus, FR">Fréjus</option>
+                                    <option value="saint-tropez, FR">Saint-Tropez</option>
+                                </select>
+                                <br>
+                                <p>End:</p>
+                                <select id="end">
+                                    <option value="kinsale, IE">Kinsale</option>
+                                    <option value="marseille, FR">Marseille</option>
+                                </select>
+                                <br>
+                                <input class="btn btn-outline page-button mb-5" type="submit" id="submit">
+                                <br>
+                            </div>
+                            <div id="directions-panel"></div>
+                        </div>
+                    </div>
+                    <div class="mt-2" id="map"></div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="container-fluid mx-auto row justify-content-center">
-        <a href="#top" class="btn btn-outline page-button m-5">
-            <i class="fas fa-arrow-up"></i>
-                Back to Top
-        </a>
-        <br>
+<!--End of Tour Options Section-->
+
+<!--Enquiry Form Section-->
+
+<div class="col-12 mx-auto text-center" id="tour">
+    <div class="row">
+        <div class="card mx-auto text-center card-outline">
+            <h2>Enquiry Form</h2>
+            {% if user.is_authenticated %}
+            <form class="form" action="{% url 'tours' %}" method="POST">
+                <div class="form-row">
+                    <div class="col-12 mx-auto text-center">
+                        {% csrf_token %}
+                        <fieldset class="fields">
+                            <p>Tour</p>
+                            {{ form.tour | as_crispy_field}}
+                            <p>Date Preference</p>
+                            {{ form.date_preference | as_crispy_field}}
+                            <p>Format</p>
+                            {{ form.analogue_or_digital | as_crispy_field}}
+                            <p>Proficiency</p>
+                            {{ form.skill_level | as_crispy_field}}
+                            <p>Dietary Requirements</p>
+                            {{ form.dietary_requirements | as_crispy_field}}
+                            <p>Any Comments</p>
+                            {{ form.any_comments | as_crispy_field }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline page-button mb-5">
+                                <i class="fas fa-pen-square"></i>
+                                Submit
+                            </button>
+                            {% else %}
+                                <p>Please <a href="{% url 'account_login' %}">Login</a> or <a href="{% url 'account_signup' %}">Register</a> to complete this Form.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 
-<!--End of Header Section-->
+<!--End of Enquiry Form Section-->
 
+<!--Back To Top Section-->
 
+<div class="container-fluid mx-auto row justify-content-center">
+    <a href="#top" class="btn btn-outline page-button m-5">
+        <i class="fas fa-arrow-up"></i>
+        Back to Top
+    </a>
+    <br>
+</div>
 
-
+<!--End of Back To Top Section-->
 
 {% endblock %}

@@ -5,6 +5,7 @@ from .forms import TourForm
 
 
 def tours(request):
+    """A view to render Tour Page & Enquiry Form"""
     tour = Tour.objects.all()
     if request.method == 'POST':
         form = TourForm(request.POST)
@@ -25,4 +26,6 @@ def tours(request):
 
 
 def success(request):
+    """A view to render Success Page"""
     return render(request, 'tours/success.html')
+
