@@ -183,7 +183,7 @@
                                 <p>
                                     <small class="small">Image</small>
                                 </p>
-                                <img class="card-img-top mb-2" src="/media/{{ review.favourite_image }}.jpg"
+                                <img class="card-img-top mb-2" src="https://the-new-gallery.s3.amazonaws.com/media/{{ review.favourite_image }}.jpg"
                                     alt="Card image cap">
                                 {% if review.user == user %}
                                 <a href="{% url 'review_update' review.id %}" class="btn btn-outline page-button m-3">
