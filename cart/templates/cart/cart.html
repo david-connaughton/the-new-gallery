@@ -86,8 +86,14 @@
             {% endfor %}
         </div>
     </div>
-    <br>
-    <br>
+    <div class="row">
+        <div class="mx-auto text-center">
+            <a href="{% url 'checkout' %}" class="btn btn-outline page-button mb-5">
+                <i class="fas fa-shopping-cart"></i>
+                Checkout
+            </a>
+        </div>
+    </div> 
     {% else %}
     <div class="container-fluid mx-auto nothing-in-cart">
         <div class="row">

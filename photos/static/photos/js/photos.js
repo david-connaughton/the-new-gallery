@@ -10,5 +10,10 @@ $(document).ready(function(){
     $('#clicker').click(function() {
         $('#modal-main-id').attr('src', $('#photo-img').attr('src'));
         $('#myModal').modal('show');
-    });    
+    }); 
+
+    var image = document.getElementById('image-name');
+    image.split('.').slice();
+    console.log(image);
+    
 });

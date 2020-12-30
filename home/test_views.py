@@ -1,4 +1,5 @@
 from django.test import TestCase
+from . import views
 
 
 class TestHome(TestCase):

@@ -20,6 +20,9 @@
                 <a href="#" id="clicker">
                     <img src="{{ photo.image.url }}" class="img-fluid p-1" id="photo-img" alt="Photo Image">
                 </a>
+                <p>
+                    <small class="text-muted pop-up">Click Image to view Larger</small>
+                </p>
                 <br>
                 <p>
                     <small class="small">Photographer</small>
@@ -29,6 +32,10 @@
                     <small class="small description">Description</small>
                 </p>
                 <p class="description">{{ photo.description }}</p>
+                <p>
+                    <small class="small description">Image Catalogue</small>
+                </p>
+                <p class="description">{{ photo.image }}</p>
                 <p>
                     <small class="small">Price</small>
                 </p>
