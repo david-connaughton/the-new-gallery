@@ -12,6 +12,3 @@ class TestTours(TestCase):
         response = self.client.get('/tours/success/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'tours/success.html')
-
-
-

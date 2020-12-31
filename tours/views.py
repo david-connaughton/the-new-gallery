@@ -12,7 +12,6 @@ def tours(request):
             form.instance.user = request.user
             form.save()
             return redirect(reverse('success'))
- 
     form = TourForm
     template = 'tours/tours.html'
 
@@ -27,4 +26,3 @@ def tours(request):
 def success(request):
     """A view to render Success Page"""
     return render(request, 'tours/success.html')
-

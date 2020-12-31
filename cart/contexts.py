@@ -1,10 +1,9 @@
-"""Inspired by Code Institute Tutorial"""
-
 from django.conf import settings
-"""Re-purposed from Code Institute Tutorial"""
-
 from django.shortcuts import get_object_or_404
 from photos.models import Photo
+
+
+"""Re-purposed from Code Institute Tutorial"""
 
 
 def cart_contents(request):

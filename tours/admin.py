@@ -3,4 +3,3 @@ from .models import Tour
 
 
 admin.site.register(Tour)
-

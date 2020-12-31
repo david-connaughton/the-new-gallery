@@ -69,18 +69,3 @@ marquee {
     border:  solid #c70000 1px !important;
     max-width: 450px;
 }
-
-
-
-/*-----------------------Media Queries*/
-
-@media screen and (max-width: 767px) {
-
-    /* .fields {
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-top: 10px; 
-    } */
-
-}
-

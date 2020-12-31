@@ -47,4 +47,3 @@ class ReviewDeleteView(DeleteView):
         if self.request.user == review.user:
             return True
         return False
-
