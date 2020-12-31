@@ -2,6 +2,18 @@
 
 # Introduction
 
+The New Gallery website is for my Full-Stack Frameworks with Django Milestone Project submission. The site is an online Photography Gallery, Shop and Tour Enquiry platform. It is designed utilising the Django Framework to allow the user to have a full Ecommerce Experience. It allows full user authentication with Create, Read, Edit and Delete (CRUD) permissions where appropriate. This is to the benefit of both the Site Owner and User.
+
+The User journey is intended to be intuitive and seamless. I have created a multi-page site architecture broken into individual App components as follows:
+
+* Home
+* Photos (Gallery)
+* Cart
+* Checkout
+* Reviews
+* Tours
+* Profiles (complete with Registration, Login, Logout and Password Reset functionality)
+
 # Table of Contents
 
 * [UX](#UX)
@@ -16,16 +28,118 @@
 This site is designed Mobile First and is responsive on all devices. Full UX documentation with User Stories is contained in the [UX Document](documentation/UX-Documentation-The-New-Gallery.pdf) stored in the Documentation section of this GitHub Repository. 
 
 * Wireframes for the site are stored [here](documentation/wireframes)
-* Surface mockups for the site are stored [here](documentaion/surface)
-
+* Surface mockups for the site are stored [here](documentation/surface)
 
 # Features
 
+As stated in the [Introduction](#Introduction) section [The New Gallery](https://the-new-gallery.herokuapp.com/) is constructed as a composite of 7 Django Apps. Each App is both independent and interdependent on other and lends specific functionality to the site.
+
+## Existing Features:
+
+### Home App
+The Home App is used to render the index.html file. This is the first touchpoint for a customer when they visit [The New Gallery](https://the-new-gallery.herokuapp.com/). The user is greeted with a responsive page that extends from the base.html template. Th page contains a Navbar and Footer (which persist across the site), a Hero Image and a Call-To-Action Button which invites the User to visit the Gallery.
+
+
+### Photos App
+The Photos App (aka Gallery) is used to render the images which the user can peruse prior to deciding to make a purchase. The images are rendered in individual Bootstrap Cards and limited to 6 images per page. 
+
+
+The Photos page contains two bespoke features Filtering and Pagination. The Filter allows the User to view similar images. The User can also reset their filter choice by selecting "All". The User can also navigate through the Photos by using the Pagination Buttons at the bottom of the Page.
+
+By Pressing "Further Information" under an individual Image, the user is transported to an individual Photo-Detail page for the selected Image. 
+
+On this page, a user is supplied with further Information on the selected image. They can also select the quantity they wish to add to their Cart and can also navigate back to the Gallery to view further options. Once an item quantity has been selected, the user's cart is updated in the Navbar with the total value of items they have selected.
+
+### Cart App
+The Cart App is used to render the itemms and quantities the user has opted to pursue for purchase. The user has the option to edit the quantity. If the user opts to edit the quantity the monetary total and item count updates accordingly. The user has the option to continue the Checkout by pressing the corresponding Button. The user also has the option to delete the selected item from their Cart and to return to the Gallery to view more images.
+
+### Checkout App
+The Checkout App allows the user to review their order on the checkout page by pressing the "Show/Hide Order" Button. The user can also opt to go straight tot the delivery details section. The user can complete the process as an unregistered customer but is encouraged to "Register" or "Login" via Call-To-Action Buttons. If the user is logged in they can press a checkbox to save their delivery details to their unique profile.
+
+The customer can make a payment for their order using the Stripe Credit Card Facility. As this is a project site the user should use the card number 4242 4242 4242 4242. When the payment is successfully processed, the user is directed to a Checkout Success Page. This page supplied the customer with their order information. This order information is also saved to their user profile page and an email of confirmation is issued to the customer.
+
+### Reviews App
+The Reviews App allows a user to read reviews of images submitted by other users. If the customer is authenticated and logged in, there is a Call-To-Action Button inviting them to submit a review. If user opts to leave a review they are directed to the custom Review Form. When their review is submitted they are redirected to the Reviews Page. The user's review will appear on this page and on their individual Profile Page.
+
+The user retains full CRUD (Create, Read, Update and Delete) functionality of their review and can conduct any of these operations from both the Reviews Page and their Profile Page.
+
+### Tours App
+The Tours App features three components. 
+
+* Tour options
+* Map
+* Custom Enquiry Form
+
+The user is presented with two tour options and has the opportunity to engage with a Customized Map to see the journey distances for the Tours. If the user isn't logged in they are invited to do so or to register. One they have done this, they can complete a Custom Enquiry Form stating their tour preference and supply some information to the site Owner. The completed form is saved to Django Admin for the Site Owner. Upon completing the Form, the user is redirected to a success page to acknowledge receipt of their enquiry.
+
+### Profiles App
+The Profiles App consists of a single Profile Page. On this page, the user has full visibility of their Delivery Details (which they can update), Order History and Reviews. 
+
+Via All-Auth Templates, the user can also Register, Login, Logout and Reset their password.
+
+
+## Features Left To Implement:
+
+### Social Media Authentication:
+Social Media authentication would allow the user to Register, Login, Logout and Reset their password via a designated Social Media Account such as Facebook or Twitter. I reviewed this option during the Scope Process of UX and deemed it to be out-of-scope for the intial iteration of [The New Gallery](https://the-new-gallery.herokuapp.com/).
+
+### Individual Artist Profiles:
+I weighed up the merits of Individual Artis Profiles during my Focus Groups. A decision was made to forgo this functionality at this point. [The New Gallery](https://the-new-gallery.herokuapp.com/) aims to be a collaborative site and to encourage cross-pollination of styles and to expose users to the same. The inclusion of further Artists to the site may necessitate bespoke curation and individual sections for each.
+
 # Technologies-Used
+
+The New Gallery website was constructed using [Gitpod IDE](https://www.gitpod.io/). 
+
+The programming languages utilized include:
+* [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript](https://www.javascript.com/)/[jQuery](https://jquery.com/) 
+* [Python](https://www.python.org/)
+* [Django Framework](https://www.djangoproject.com/)
+
+
+The payment system utilizes [Stripe](https://stripe.com/ie). 
+
+
+The Map element is via the [Google API](https://developers.google.com/maps/documentation/javascript/overview) with Directions, Maps and Places libraries enabled.
+
+
+I utilized [Bootstrap 4](https://getbootstrap.com/) for the  HTML Framework and [Balsamiq](https://balsamiq.com/) to complete the Wireframes.
+
+
+A number of packages and libraries were installed via [PIP](https://pypi.org/project/pip/) to progress functionality on the site. These are documented in the [Deployment](#Deployment) section.
+
+
+The code was validated where appropriate using the following validators:
+* [HTML Validator](https://validator.w3.org/)
+* [CSS Validator](http://jigsaw.w3.org/css-validator/)
+* [Javascript Validator](https://codebeautify.org/jsvalidate)
+
+
+The Static files and Images are stored on the [Amazon AWS S3]() server.
+
+
+The email functionality is provided via [Google Gmail](https://www.google.com/gmail/about/).
+
+
+The New Gallery is in production and released on [Heroku](https://the-new-gallery.herokuapp.com/).
 
 # Testing
 
+Extensive UAT(User Acceptance Testing) has been conducted with a total of 26 tests stored in the [Testing Document](documentation/Testing-Doc-The-New-Gallery.pdf) available in the Documentation section of this gitHub Repository. I also conducted some rudimentary Unit Testing for each App.
+
 # Deployment
+
+The New Gallery is deployed and available on [Heroku](https://the-new-gallery.herokuapp.com/).
 
 # Credits
 
+
+### Content & Acknowledgments
+
+* The Home App Cover Image Styling is inspired and customized by the following [tutorial](https://www.w3schools.com/howto/howto_css_hero_image.asp).
+* The Cart and Checkout Apps are inspired and customized from a [Code Institute](https://codeinstitute.net/) Full Stack Frameworks with Django example.
+* I sought inspiration for building Class Based views from the following [Tutorial](https://www.youtube.com/watch?v=-s7e_Fy6NRU&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=10).
+* The implentation and styling of Stripe in the Checkout App was assisted by this [Stripe Tutorial](https://stripe.com/docs/js/element/mount).
+* The Map contained within the Tours App is inspired by the example [here](https://developers.google.com/maps/documentation/javascript/examples/directions-waypoints). The API key is included in the project as is required for Google API but is securely protected and restricted via my Google Developers Account.
+* The Gallery images are kindly supplied by [Shane Connaughton](https://www.instagram.com/connaughtonshane/) and [Katie O'Neill](https://www.katie-oneill.com/).
