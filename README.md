@@ -211,7 +211,7 @@ In [Heroku](https://www.heroku.com) Config Vars:
 3. USE_AWS = True
 
 * To complete the deployment i installed the following via the CLI `pip3 install dj_database_url` and `pip3 install psycopg2-binary`
-* I then froze the requirements by typing `pip3 freeze --local > requirments.txt`
+* I then froze the requirements by typing `pip3 freeze --local > requirements.txt`
 * I also imported `dj_database_url` to my settings.py file.
 * To set up the Heroku Database, the following was added to `settings.py`
 * if 'DATABASE_URL' in os.environ:
